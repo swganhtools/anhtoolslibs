@@ -32,7 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ANHDBI">
-      <HintPath>..\..\swganhTools\ANHDBI\ANHDBI\bin\Debug\ANHDBI.dll</HintPath>
+      <HintPath>..\..\ANHDBI\ANHDBI\bin\Debug\ANHDBI.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=6.2.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
@@ -45,7 +45,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Utilities">
-      <HintPath>..\..\swganhTools\ANHDBI\ANHDBI\bin\Debug\Utilities.dll</HintPath>
+      <HintPath>..\..\ANHDBI\ANHDBI\bin\Debug\Utilities.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
