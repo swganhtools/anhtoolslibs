@@ -18,6 +18,9 @@ namespace ANHMonitor
 {
     public partial class frmMonitor : Form
     {
+        string host = System.Configuration.ConfigurationManager.AppSettings["remotehost"];
+        int port = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["remoteport"]);
+        string passkey = System.Configuration.ConfigurationManager.AppSettings["remoteauth"];
         public frmMonitor()
         {
             InitializeComponent();
@@ -805,7 +808,7 @@ namespace ANHMonitor
             flgStopAnh = true;
         }
         public void StartServer() {
-            TcpListener tcpListener = new TcpListener(40998);
+            TcpListener tcpListener = new TcpListener(port);
             tcpListener.Start();
             //this.label1.Text = "Server Started";
             SetText("Started Server");
@@ -830,7 +833,7 @@ namespace ANHMonitor
                         string line = streamReader.ReadLine();
 
                         string[] logininfo = line.Split(',');
-                        if (logininfo[0] == "start")
+                        if (logininfo[0] == "start" && logininfo[2] == passkey)
                         {
                             if (logininfo[1] == "utilities")
                             {
@@ -851,7 +854,7 @@ namespace ANHMonitor
 
                             }                                                   
                         }
-                        else if (logininfo[0] == "stop")
+                        else if (logininfo[0] == "stop" && logininfo[2] == passkey)
                         {
                             Thread AnhStop = new Thread(new ThreadStart(StopANH));
                             if (flgStopAnh == true)
@@ -865,7 +868,7 @@ namespace ANHMonitor
                                 streamWriter.Flush();
                                 socketForClient.Close();                           
                         }
-                        else if (logininfo[0] == "status")
+                        else if (logininfo[0] == "status" && logininfo[2] == passkey)
                         {
                             if (logininfo[1] == "zones")
                             {

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMonitor));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txtConnection = new System.Windows.Forms.TextBox();
@@ -95,7 +94,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage1.BackgroundImage")));
+            this.tabPage1.BackgroundImage = global::ANHMonitor.Properties.Resources.newgui;
             this.tabPage1.Controls.Add(this.txtConnection);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -233,7 +232,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(599, 431);
+            this.tabPage6.Size = new System.Drawing.Size(605, 431);
             this.tabPage6.TabIndex = 1;
             this.tabPage6.Text = "Tatooine";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -255,7 +254,7 @@
             this.tabPage7.Controls.Add(this.txtCorellia);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(599, 431);
+            this.tabPage7.Size = new System.Drawing.Size(605, 431);
             this.tabPage7.TabIndex = 2;
             this.tabPage7.Text = "Corellia";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -277,7 +276,7 @@
             this.tabPage8.Controls.Add(this.txtDantooine);
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(599, 431);
+            this.tabPage8.Size = new System.Drawing.Size(605, 431);
             this.tabPage8.TabIndex = 3;
             this.tabPage8.Text = "Dantooine";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -299,7 +298,7 @@
             this.tabPage9.Controls.Add(this.txtDathomir);
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(599, 431);
+            this.tabPage9.Size = new System.Drawing.Size(605, 431);
             this.tabPage9.TabIndex = 4;
             this.tabPage9.Text = "Dathomir";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -321,7 +320,7 @@
             this.tabPage10.Controls.Add(this.txtEndor);
             this.tabPage10.Location = new System.Drawing.Point(4, 22);
             this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Size = new System.Drawing.Size(599, 431);
+            this.tabPage10.Size = new System.Drawing.Size(605, 431);
             this.tabPage10.TabIndex = 5;
             this.tabPage10.Text = "Endor";
             this.tabPage10.UseVisualStyleBackColor = true;
@@ -343,7 +342,7 @@
             this.tabPage11.Controls.Add(this.txtLok);
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Size = new System.Drawing.Size(599, 431);
+            this.tabPage11.Size = new System.Drawing.Size(605, 431);
             this.tabPage11.TabIndex = 6;
             this.tabPage11.Text = "Lok";
             this.tabPage11.UseVisualStyleBackColor = true;
@@ -365,7 +364,7 @@
             this.tabPage12.Controls.Add(this.txtNaboo);
             this.tabPage12.Location = new System.Drawing.Point(4, 22);
             this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Size = new System.Drawing.Size(599, 431);
+            this.tabPage12.Size = new System.Drawing.Size(605, 431);
             this.tabPage12.TabIndex = 7;
             this.tabPage12.Text = "Naboo";
             this.tabPage12.UseVisualStyleBackColor = true;
@@ -387,7 +386,7 @@
             this.tabPage13.Controls.Add(this.txtRori);
             this.tabPage13.Location = new System.Drawing.Point(4, 22);
             this.tabPage13.Name = "tabPage13";
-            this.tabPage13.Size = new System.Drawing.Size(599, 431);
+            this.tabPage13.Size = new System.Drawing.Size(605, 431);
             this.tabPage13.TabIndex = 8;
             this.tabPage13.Text = "Rori";
             this.tabPage13.UseVisualStyleBackColor = true;
@@ -409,7 +408,7 @@
             this.tabPage14.Controls.Add(this.txtTalus);
             this.tabPage14.Location = new System.Drawing.Point(4, 22);
             this.tabPage14.Name = "tabPage14";
-            this.tabPage14.Size = new System.Drawing.Size(599, 431);
+            this.tabPage14.Size = new System.Drawing.Size(605, 431);
             this.tabPage14.TabIndex = 9;
             this.tabPage14.Text = "Talus";
             this.tabPage14.UseVisualStyleBackColor = true;
@@ -431,7 +430,7 @@
             this.tabPage15.Controls.Add(this.txtYavin);
             this.tabPage15.Location = new System.Drawing.Point(4, 22);
             this.tabPage15.Name = "tabPage15";
-            this.tabPage15.Size = new System.Drawing.Size(599, 431);
+            this.tabPage15.Size = new System.Drawing.Size(605, 431);
             this.tabPage15.TabIndex = 10;
             this.tabPage15.Text = "Yavin 4";
             this.tabPage15.UseVisualStyleBackColor = true;
@@ -457,7 +456,7 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "label1";
             // 
-            // Form1
+            // frmMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -465,7 +464,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControl2);
             this.Controls.Add(this.tabControl1);
-            this.Name = "Form1";
+            this.Name = "frmMonitor";
             this.Text = "SWG:ANH TC Server";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMonitor_FormClosing);
             this.Load += new System.EventHandler(this.frmMonitor_Load);
