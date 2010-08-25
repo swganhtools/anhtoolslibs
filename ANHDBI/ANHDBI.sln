@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ANHDBI", "ANHDBI\ANHDBI.csproj", "{20F68F1A-472A-4747-A828-EC2AEDF72014}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{8CA35440-71BC-46E5-8126-C56617B959C8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20F68F1A-472A-4747-A828-EC2AEDF72014}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20F68F1A-472A-4747-A828-EC2AEDF72014}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20F68F1A-472A-4747-A828-EC2AEDF72014}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20F68F1A-472A-4747-A828-EC2AEDF72014}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CA35440-71BC-46E5-8126-C56617B959C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CA35440-71BC-46E5-8126-C56617B959C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CA35440-71BC-46E5-8126-C56617B959C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CA35440-71BC-46E5-8126-C56617B959C8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
