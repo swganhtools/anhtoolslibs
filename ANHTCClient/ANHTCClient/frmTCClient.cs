@@ -50,7 +50,7 @@ namespace ANHTCClient
             if (s == "success")
             {
                 label5.ForeColor = Color.Lime;
-                label5.Text = "Zones Online";
+                label5.Text = "ONLINE";
                 label6.Text = "Request Completed";
             }
             if (s == "fail")
@@ -80,13 +80,13 @@ namespace ANHTCClient
             if (s == "success")
             {
                 label4.ForeColor = Color.Lime;
-                label4.Text = "Utility Servers ONLINE";
+                label4.Text = "ONLINE";
                 label6.Text = "Request Completed";
             }
             if (s == "fail")
             {
-                label5.ForeColor = Color.Red;
-                label4.Text = "Utility Servers OFFLINE";
+                label4.ForeColor = Color.Red;
+                label4.Text = "OFFLINE";
                 label6.Text = "Request Completed";
             }
             

@@ -904,9 +904,37 @@ namespace ANHMonitor
                                     socketForClient.Close();
                                 }
                             }
+                            else if (logininfo[0] == "status" && logininfo[2] != passkey)
+                            {
+                               
+                                        streamWriter.WriteLine("fail");
+
+                                        streamWriter.Flush();
+                                        socketForClient.Close();
+                                    
+                                }
+                            else if (logininfo[0] == "stop" && logininfo[2] != passkey)
+                            {
+
+                                streamWriter.WriteLine("fail");
+
+                                streamWriter.Flush();
+                                socketForClient.Close();
+
+                            }
+                            else if (logininfo[0] == "start" && logininfo[2] != passkey)
+                            {
+
+                                streamWriter.WriteLine("fail");
+
+                                streamWriter.Flush();
+                                socketForClient.Close();
+
+                            }
+                            }
                         }
                     }
-                }
+                
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.ToString());
