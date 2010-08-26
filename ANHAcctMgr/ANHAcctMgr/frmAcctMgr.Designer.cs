@@ -42,7 +42,6 @@
             this.lbl2 = new System.Windows.Forms.Label();
             this.txtChars = new System.Windows.Forms.TextBox();
             this.txtBanned = new System.Windows.Forms.TextBox();
-            this.txtCSR = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -59,6 +58,8 @@
             this.txtCreateEmail = new System.Windows.Forms.TextBox();
             this.txtCreateUser = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtCSR = new System.Windows.Forms.TextBox();
+            this.cmbCSR = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -78,6 +79,8 @@
             // tabPage1
             // 
             this.tabPage1.BackgroundImage = global::ANHAcctMgr.Properties.Resources.grey;
+            this.tabPage1.Controls.Add(this.cmbCSR);
+            this.tabPage1.Controls.Add(this.txtCSR);
             this.tabPage1.Controls.Add(this.btnPassUpdate);
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.txtUpdatePass);
@@ -89,7 +92,6 @@
             this.tabPage1.Controls.Add(this.lbl2);
             this.tabPage1.Controls.Add(this.txtChars);
             this.tabPage1.Controls.Add(this.txtBanned);
-            this.tabPage1.Controls.Add(this.txtCSR);
             this.tabPage1.Controls.Add(this.txtEmail);
             this.tabPage1.Controls.Add(this.txtUserName);
             this.tabPage1.Controls.Add(this.label1);
@@ -202,14 +204,6 @@
             this.txtBanned.Size = new System.Drawing.Size(234, 20);
             this.txtBanned.TabIndex = 5;
             // 
-            // txtCSR
-            // 
-            this.txtCSR.ForeColor = System.Drawing.Color.Black;
-            this.txtCSR.Location = new System.Drawing.Point(230, 59);
-            this.txtCSR.Name = "txtCSR";
-            this.txtCSR.Size = new System.Drawing.Size(234, 20);
-            this.txtCSR.TabIndex = 4;
-            // 
             // txtEmail
             // 
             this.txtEmail.ForeColor = System.Drawing.Color.Black;
@@ -268,12 +262,14 @@
             this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
             this.refreshToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
             // deleteMemberToolStripMenuItem
             // 
             this.deleteMemberToolStripMenuItem.Name = "deleteMemberToolStripMenuItem";
             this.deleteMemberToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.deleteMemberToolStripMenuItem.Text = "Delete Member";
+            this.deleteMemberToolStripMenuItem.Click += new System.EventHandler(this.deleteMemberToolStripMenuItem_Click);
             // 
             // tabPage2
             // 
@@ -351,6 +347,26 @@
             this.label7.TabIndex = 9;
             this.label7.Text = "UserName";
             // 
+            // txtCSR
+            // 
+            this.txtCSR.ForeColor = System.Drawing.Color.Black;
+            this.txtCSR.Location = new System.Drawing.Point(230, 59);
+            this.txtCSR.Name = "txtCSR";
+            this.txtCSR.Size = new System.Drawing.Size(82, 20);
+            this.txtCSR.TabIndex = 18;
+            // 
+            // cmbCSR
+            // 
+            this.cmbCSR.FormattingEnabled = true;
+            this.cmbCSR.Items.AddRange(new object[] {
+            "Normal",
+            "CSR",
+            "Developer"});
+            this.cmbCSR.Location = new System.Drawing.Point(319, 58);
+            this.cmbCSR.Name = "cmbCSR";
+            this.cmbCSR.Size = new System.Drawing.Size(121, 21);
+            this.cmbCSR.TabIndex = 19;
+            // 
             // frmAcctMgr
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -388,7 +404,6 @@
         private System.Windows.Forms.Label lbl2;
         private System.Windows.Forms.TextBox txtChars;
         private System.Windows.Forms.TextBox txtBanned;
-        private System.Windows.Forms.TextBox txtCSR;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.Label label1;
@@ -405,5 +420,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteMemberToolStripMenuItem;
+        private System.Windows.Forms.TextBox txtCSR;
+        private System.Windows.Forms.ComboBox cmbCSR;
     }
 }

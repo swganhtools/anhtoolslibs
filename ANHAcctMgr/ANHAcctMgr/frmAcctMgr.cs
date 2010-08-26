@@ -14,6 +14,9 @@ namespace ANHAcctMgr
 {
     public partial class frmAcctMgr : Form
     {
+        private SortedList<int, Account> lsAccounts;
+        private Account objAccount;
+        private bool flgAccountsLoaded = false;
         public frmAcctMgr()
         {
             InitializeComponent();
@@ -21,82 +24,58 @@ namespace ANHAcctMgr
 
         private void frmAccounts_Load(object sender, EventArgs e)
         {
-            MySQLRunner.ConnectionString = clsDBStrings.maindbcon;
+            
             listaccts();
         }
         public void listaccts()
         {
-            MySqlConnection conGet = new MySqlConnection(MySQLRunner.ConnectionString);
-            MySqlDataReader drGet = null;
-            string sSQL = "";
-            sSQL = "SELECT * FROM account";
+            //lsvAccounts.Items.Clear();
+            MySQLRunner.ConnectionString = clsDBStrings.maindbcon;
 
-            if (MySQLRunner.ExecuteQuery(sSQL, conGet, ref drGet) == true)
+            flgAccountsLoaded = false;
+            ListViewItem lsvItem;
+            lsvAccounts.Items.Clear();
+
+            if (flgAccountsLoaded == false)
             {
-                ListViewItem lsvItem;
-                while (drGet.Read())
-                {
-                    lsvItem = new ListViewItem(drGet.GetString(drGet.GetOrdinal("account_username")));
-                    lsvItem.Tag = drGet.GetString(drGet.GetOrdinal("account_id"));
-                    lsvAccounts.Items.Add(lsvItem);
-                }
+                lsAccounts = Lists.AccountList();
+                flgAccountsLoaded = false;
             }
-            else
+            foreach (Account oAccount in lsAccounts.Values)
             {
-                MessageBox.Show("Error connecting to the database.");
-            }
+                lsvItem = new ListViewItem(oAccount.Username);
+                //lsvItem.SubItems.Add(oClient.LastName);
+                lsvItem.Tag = oAccount.ID.ToString();
 
-            if (conGet.State == ConnectionState.Open)
-            {
-                if (drGet != null)
-                    drGet.Close();
-
-                conGet.Close();
+                lsvAccounts.Items.Add(lsvItem);
             }
         }
         private void lsvAccounts_DoubleClick(object sender, EventArgs e)
         {
-            if (lsvAccounts.SelectedItems.Count <= 0)
+             if (lsvAccounts.SelectedItems.Count <= 0)
             {
                 return;
             }
 
-            string ID = lsvAccounts.SelectedItems[0].Tag.ToString();
+            objAccount = lsAccounts[int.Parse(lsvAccounts.SelectedItems[0].Tag.ToString())];
 
-            MySqlConnection conGet = new MySqlConnection(MySQLRunner.ConnectionString);
-            MySqlDataReader drGet = null;
-            string sSQL = "";
-            sSQL = "SELECT * FROM account where account_id = '" + ID.ToString() + "'";
-
-            if (MySQLRunner.ExecuteQuery(sSQL, conGet, ref drGet) == true)
-            {
-                drGet.Read();
-
-                if (drGet.HasRows == false)
-                {
-                    txtUserName.Text = "";
-                    txtEmail.Text = "";
-                    txtCSR.Text = "";
-                    txtBanned.Text = "";
-                    txtChars.Text = "";
-                }
-                else
-                {
-                    txtUserName.Text = drGet.GetString(drGet.GetOrdinal("account_username"));
-                    txtEmail.Text = drGet.GetString(drGet.GetOrdinal("account_email"));
-                    txtCSR.Text = drGet.GetString(drGet.GetOrdinal("account_csr"));
-                    txtBanned.Text = drGet.GetString(drGet.GetOrdinal("account_banned"));
-                    txtChars.Text = drGet.GetString(drGet.GetOrdinal("account_characters_allowed"));
-                }
+                    txtUserName.Text = objAccount.Username;
+                    txtEmail.Text = objAccount.Email;
+                    string csrflag = objAccount.CSR.ToString();
+            if (csrflag == "0"){
+                cmbCSR.SelectedItem = "Normal";
             }
-
-            if (conGet.State == ConnectionState.Open)
+            if (csrflag == "1")
             {
-                if (drGet != null)
-                    drGet.Close();
-
-                conGet.Close();
+                cmbCSR.SelectedItem = "CSR";
             }
+            if (csrflag == "2")
+            {
+                cmbCSR.SelectedItem = "Developer";
+            }
+                    txtCSR.Text = objAccount.CSR.ToString();
+                    txtBanned.Text = objAccount.Banned;
+                    txtChars.Text = objAccount.CharsAllowed;           
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
@@ -107,16 +86,19 @@ namespace ANHAcctMgr
             bool flgReturn = false;
             sSQL = "CALL sp_AdminAddAccount('" + txtCreateUser.Text + "','" + txtCreatePass.Text + "','" + txtCreateEmail.Text + "');";
             if (MySQLRunner.ExecuteNonQuery(sSQL, conAdd) == false)
+            {
                 MessageBox.Show("Error creating Account.");
+            }
             else
+            {
                 MessageBox.Show("Account Creation Successful.");
-
+            }
             if (conAdd.State == ConnectionState.Open)
             {
                 conAdd.Close();
-            }
-
+            }            
             //return flgReturn;
+            listaccts();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -128,41 +110,27 @@ namespace ANHAcctMgr
             string banned = "";
             string csr = "";
             string ID = lsvAccounts.SelectedItems[0].Tag.ToString();
-            if (txtBanned.Text == "True")
-            {
-                banned = "1";
-            }
-            else
-            {
-                banned = "0";
-            }
-            if (txtCSR.Text == "True")
-            {
-                csr = "1";
-            }
-            else
-            {
-                csr = "0";
-            }
+            
 
             sSQL = "UPDATE account SET " +
                      "account_username='" + txtUserName.Text + "', " +
                      "account_email='" + txtEmail.Text + "', " +
                      "account_banned='" + banned + "', " +
-                     "account_csr='" + csr + "', " +
+                     "account_csr='" + txtCSR.Text + "', " +
                      "account_characters_allowed='" + txtChars.Text + "' " +
                      "WHERE account_id=" + ID.ToString();
 
 
             if (MySQLRunner.ExecuteNonQuery(sSQL, conAdd) == false)
-                MessageBox.Show("Error creating Account.");
+                MessageBox.Show("Error editing Account.");
             else
-                MessageBox.Show("Account Creation Successful.");
+                MessageBox.Show("Account Update Successful.");
 
             if (conAdd.State == ConnectionState.Open)
             {
                 conAdd.Close();
             }
+            listaccts();
         }
 
         private void btnPassUpdate_Click(object sender, EventArgs e)
@@ -183,6 +151,32 @@ namespace ANHAcctMgr
             {
                 conAdd.Close();
             }
+            listaccts();
+        }
+
+        private void deleteMemberToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MySQLRunner.ConnectionString = clsDBStrings.maindbcon;
+            MySqlConnection conAdd = new MySqlConnection(MySQLRunner.ConnectionString);
+            string sSQL = "";
+            string ID = lsvAccounts.SelectedItems[0].Tag.ToString();
+            sSQL = "DELETE from account " +
+                   "WHERE account_id=" + ID.ToString();
+            if (MySQLRunner.ExecuteNonQuery(sSQL, conAdd) == false)
+                MessageBox.Show("Error Deleting User.");
+            else
+                MessageBox.Show("User Deleted.");
+
+            if (conAdd.State == ConnectionState.Open)
+            {
+                conAdd.Close();
+            }
+            listaccts();
+        }
+
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listaccts();
         }
     }
 }
