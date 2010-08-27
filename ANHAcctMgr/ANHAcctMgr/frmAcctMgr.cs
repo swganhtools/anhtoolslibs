@@ -21,12 +21,24 @@ namespace ANHAcctMgr
         {
             InitializeComponent();
         }
-
+        private void ClearAccount()
+        {
+            txtUserName.Text = "";
+            txtEmail.Text = "";
+            cmbCSR.SelectedItem = "Normal";
+            txtBanned.Text = "";
+            txtChars.Text = "";
+            txtLastLogin.Text = "";
+            txtLastCreate.Text = "";
+            txtJoined.Text = "";
+            txtUpdatePass.Text = "";
+        }
         private void frmAccounts_Load(object sender, EventArgs e)
         {
-            
+            cmbCreateType.SelectedItem = "Normal";
             listaccts();
         }
+        
         public void listaccts()
         {
             //lsvAccounts.Items.Clear();
@@ -73,18 +85,32 @@ namespace ANHAcctMgr
             {
                 cmbCSR.SelectedItem = "Developer";
             }
-                    txtCSR.Text = objAccount.CSR.ToString();
                     txtBanned.Text = objAccount.Banned;
-                    txtChars.Text = objAccount.CharsAllowed;           
+                    txtChars.Text = objAccount.CharsAllowed;
+                    txtLastLogin.Text = objAccount.LastLogin;
+                    txtLastCreate.Text = objAccount.LastCreate;
+                    txtJoined.Text = objAccount.JoinDate;
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            MySQLRunner.ConnectionString = clsDBStrings.configdbcon;
+            MySQLRunner.ConnectionString = clsDBStrings.utilitydbcon;
             MySqlConnection conAdd = new MySqlConnection(MySQLRunner.ConnectionString);
             string sSQL = "";
-            bool flgReturn = false;
-            sSQL = "CALL sp_AdminAddAccount('" + txtCreateUser.Text + "','" + txtCreatePass.Text + "','" + txtCreateEmail.Text + "');";
+            int typevalue = 0;
+            if (cmbCreateType.SelectedItem == "Normal")
+            {
+                typevalue = 0;
+            }
+            if (cmbCreateType.SelectedItem == "CSR")
+            {
+                typevalue = 1;
+            }
+            if (cmbCreateType.SelectedItem == "Developer")
+            {
+                typevalue = 2;
+            }
+            sSQL = "CALL sp_AdminAccountAdd('" + txtCreateUser.Text + "','" + txtCreatePass.Text + "','" + txtCreateEmail.Text + "', '" + typevalue + "', '" + txtCreateCharsAllowed.Text + "');";
             if (MySQLRunner.ExecuteNonQuery(sSQL, conAdd) == false)
             {
                 MessageBox.Show("Error creating Account.");
@@ -96,72 +122,75 @@ namespace ANHAcctMgr
             if (conAdd.State == ConnectionState.Open)
             {
                 conAdd.Close();
-            }            
-            //return flgReturn;
+            }
             listaccts();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            MySQLRunner.ConnectionString = clsDBStrings.maindbcon;
-            MySqlConnection conAdd = new MySqlConnection(MySQLRunner.ConnectionString);
-            string sSQL = "";
-            bool flgReturn = false;
-            string banned = "";
-            string csr = "";
-            string ID = lsvAccounts.SelectedItems[0].Tag.ToString();
-            
-
-            sSQL = "UPDATE account SET " +
-                     "account_username='" + txtUserName.Text + "', " +
-                     "account_email='" + txtEmail.Text + "', " +
-                     "account_banned='" + banned + "', " +
-                     "account_csr='" + txtCSR.Text + "', " +
-                     "account_characters_allowed='" + txtChars.Text + "' " +
-                     "WHERE account_id=" + ID.ToString();
-
-
-            if (MySQLRunner.ExecuteNonQuery(sSQL, conAdd) == false)
-                MessageBox.Show("Error editing Account.");
-            else
-                MessageBox.Show("Account Update Successful.");
-
-            if (conAdd.State == ConnectionState.Open)
+           
+            objAccount.Username=txtUserName.Text;
+            objAccount.Email=txtEmail.Text;
+            if (cmbCSR.SelectedItem == "Normal")
             {
-                conAdd.Close();
+                objAccount.CSR = 0;
             }
-            listaccts();
+            if (cmbCSR.SelectedItem == "CSR")
+            {
+                objAccount.CSR = 1;
+            }
+            if (cmbCSR.SelectedItem == "Developer")
+            {
+                objAccount.CSR = 2;
+            }
+            if(txtBanned.Text == "True"){
+            objAccount.Banned = "1";
+            }
+            if (txtBanned.Text == "False")
+            {
+                objAccount.Banned = "0";
+            }
+
+            objAccount.CharsAllowed = txtChars.Text;           
+            if (objAccount.Save() == true)
+            {
+                MessageBox.Show("Update Successfull.", "Update Client");
+                ClearAccount();
+                listaccts();
+            }
+            else
+                MessageBox.Show("Update Failed.", "Update Client");
         }
 
         private void btnPassUpdate_Click(object sender, EventArgs e)
         {
-            MySQLRunner.ConnectionString = clsDBStrings.maindbcon;
-            MySqlConnection conAdd = new MySqlConnection(MySQLRunner.ConnectionString);
-            string sSQL = "";
-            string ID = lsvAccounts.SelectedItems[0].Tag.ToString();
-            sSQL = "UPDATE account SET " +
-                     "account_password=SHA1('" + txtUpdatePass.Text + "') " +
-                     "WHERE account_id=" + ID.ToString();
-            if (MySQLRunner.ExecuteNonQuery(sSQL, conAdd) == false)
-                MessageBox.Show("Error changing Password.");
-            else
-                MessageBox.Show("Password Change Successful.");
+           string accountid = lsvAccounts.SelectedItems[0].Tag.ToString();
 
-            if (conAdd.State == ConnectionState.Open)
-            {
-                conAdd.Close();
-            }
-            listaccts();
+           MySQLRunner.ConnectionString = clsDBStrings.utilitydbcon;
+           MySqlConnection conAdd = new MySqlConnection(MySQLRunner.ConnectionString);
+           string sSQL = "";
+           string ID = lsvAccounts.SelectedItems[0].Tag.ToString();
+           sSQL = "CALL sp_AccountUpdatePassword('" + accountid.ToString() + "', '" + txtUpdatePass.Text + "');";
+           if (MySQLRunner.ExecuteNonQuery(sSQL, conAdd) == false)
+               MessageBox.Show("Error Updating Password.");
+           else
+               MessageBox.Show("Password Updated.");
+
+           if (conAdd.State == ConnectionState.Open)
+           {
+               conAdd.Close();
+           }
+           listaccts();
+           ClearAccount();
         }
 
         private void deleteMemberToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MySQLRunner.ConnectionString = clsDBStrings.maindbcon;
+            MySQLRunner.ConnectionString = clsDBStrings.utilitydbcon;
             MySqlConnection conAdd = new MySqlConnection(MySQLRunner.ConnectionString);
             string sSQL = "";
             string ID = lsvAccounts.SelectedItems[0].Tag.ToString();
-            sSQL = "DELETE from account " +
-                   "WHERE account_id=" + ID.ToString();
+            sSQL = "CALL sp_AdminAccountDelete('" + ID.ToString() + "');";
             if (MySQLRunner.ExecuteNonQuery(sSQL, conAdd) == false)
                 MessageBox.Show("Error Deleting User.");
             else
@@ -172,11 +201,13 @@ namespace ANHAcctMgr
                 conAdd.Close();
             }
             listaccts();
+            ClearAccount();
         }
 
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
         {
             listaccts();
+            ClearAccount();
         }
     }
 }

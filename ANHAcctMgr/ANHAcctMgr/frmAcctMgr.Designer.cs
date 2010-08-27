@@ -31,6 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtJoined = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtLastCreate = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtLastLogin = new System.Windows.Forms.TextBox();
+            this.cmbCSR = new System.Windows.Forms.ComboBox();
             this.btnPassUpdate = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.txtUpdatePass = new System.Windows.Forms.TextBox();
@@ -58,8 +65,10 @@
             this.txtCreateEmail = new System.Windows.Forms.TextBox();
             this.txtCreateUser = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtCSR = new System.Windows.Forms.TextBox();
-            this.cmbCSR = new System.Windows.Forms.ComboBox();
+            this.cmbCreateType = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtCreateCharsAllowed = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -73,14 +82,19 @@
             this.tabControl1.Location = new System.Drawing.Point(5, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(489, 267);
+            this.tabControl1.Size = new System.Drawing.Size(719, 377);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
             this.tabPage1.BackgroundImage = global::ANHAcctMgr.Properties.Resources.grey;
+            this.tabPage1.Controls.Add(this.label11);
+            this.tabPage1.Controls.Add(this.txtJoined);
+            this.tabPage1.Controls.Add(this.label10);
+            this.tabPage1.Controls.Add(this.txtLastCreate);
+            this.tabPage1.Controls.Add(this.label9);
+            this.tabPage1.Controls.Add(this.txtLastLogin);
             this.tabPage1.Controls.Add(this.cmbCSR);
-            this.tabPage1.Controls.Add(this.txtCSR);
             this.tabPage1.Controls.Add(this.btnPassUpdate);
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.txtUpdatePass);
@@ -99,15 +113,81 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(481, 241);
+            this.tabPage1.Size = new System.Drawing.Size(711, 351);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Edit Accounts";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(143, 136);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(44, 13);
+            this.label11.TabIndex = 25;
+            this.label11.Text = "Joined";
+            // 
+            // txtJoined
+            // 
+            this.txtJoined.ForeColor = System.Drawing.Color.Black;
+            this.txtJoined.Location = new System.Drawing.Point(274, 133);
+            this.txtJoined.Name = "txtJoined";
+            this.txtJoined.ReadOnly = true;
+            this.txtJoined.Size = new System.Drawing.Size(234, 20);
+            this.txtJoined.TabIndex = 24;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(144, 188);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(102, 13);
+            this.label10.TabIndex = 23;
+            this.label10.Text = "Last Char Create";
+            // 
+            // txtLastCreate
+            // 
+            this.txtLastCreate.ForeColor = System.Drawing.Color.Black;
+            this.txtLastCreate.Location = new System.Drawing.Point(275, 185);
+            this.txtLastCreate.Name = "txtLastCreate";
+            this.txtLastCreate.ReadOnly = true;
+            this.txtLastCreate.Size = new System.Drawing.Size(234, 20);
+            this.txtLastCreate.TabIndex = 22;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(144, 162);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(66, 13);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "Last Login";
+            // 
+            // txtLastLogin
+            // 
+            this.txtLastLogin.ForeColor = System.Drawing.Color.Black;
+            this.txtLastLogin.Location = new System.Drawing.Point(275, 159);
+            this.txtLastLogin.Name = "txtLastLogin";
+            this.txtLastLogin.ReadOnly = true;
+            this.txtLastLogin.Size = new System.Drawing.Size(234, 20);
+            this.txtLastLogin.TabIndex = 20;
+            // 
+            // cmbCSR
+            // 
+            this.cmbCSR.FormattingEnabled = true;
+            this.cmbCSR.Items.AddRange(new object[] {
+            "Normal",
+            "CSR",
+            "Developer"});
+            this.cmbCSR.Location = new System.Drawing.Point(273, 55);
+            this.cmbCSR.Name = "cmbCSR";
+            this.cmbCSR.Size = new System.Drawing.Size(121, 21);
+            this.cmbCSR.TabIndex = 19;
+            // 
             // btnPassUpdate
             // 
             this.btnPassUpdate.BackgroundImage = global::ANHAcctMgr.Properties.Resources.grey;
-            this.btnPassUpdate.Location = new System.Drawing.Point(254, 215);
+            this.btnPassUpdate.Location = new System.Drawing.Point(264, 308);
             this.btnPassUpdate.Name = "btnPassUpdate";
             this.btnPassUpdate.Size = new System.Drawing.Size(152, 23);
             this.btnPassUpdate.TabIndex = 17;
@@ -118,7 +198,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(277, 173);
+            this.label8.Location = new System.Drawing.Point(287, 266);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(108, 13);
             this.label8.TabIndex = 16;
@@ -126,7 +206,7 @@
             // 
             // txtUpdatePass
             // 
-            this.txtUpdatePass.Location = new System.Drawing.Point(212, 189);
+            this.txtUpdatePass.Location = new System.Drawing.Point(222, 282);
             this.txtUpdatePass.Name = "txtUpdatePass";
             this.txtUpdatePass.Size = new System.Drawing.Size(234, 20);
             this.txtUpdatePass.TabIndex = 15;
@@ -134,7 +214,7 @@
             // btnReset
             // 
             this.btnReset.BackgroundImage = global::ANHAcctMgr.Properties.Resources.grey;
-            this.btnReset.Location = new System.Drawing.Point(318, 146);
+            this.btnReset.Location = new System.Drawing.Point(328, 239);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(152, 23);
             this.btnReset.TabIndex = 12;
@@ -144,7 +224,7 @@
             // btnSave
             // 
             this.btnSave.BackgroundImage = global::ANHAcctMgr.Properties.Resources.grey;
-            this.btnSave.Location = new System.Drawing.Point(160, 146);
+            this.btnSave.Location = new System.Drawing.Point(170, 239);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(152, 23);
             this.btnSave.TabIndex = 11;
@@ -155,16 +235,16 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(156, 111);
+            this.label4.Location = new System.Drawing.Point(143, 111);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 13);
+            this.label4.Size = new System.Drawing.Size(87, 13);
             this.label4.TabIndex = 10;
-            this.label4.Text = "# of Chars";
+            this.label4.Text = "Chars Allowed";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(156, 85);
+            this.label3.Location = new System.Drawing.Point(143, 85);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 9;
@@ -173,16 +253,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(156, 59);
+            this.label2.Location = new System.Drawing.Point(143, 59);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 13);
+            this.label2.Size = new System.Drawing.Size(32, 13);
             this.label2.TabIndex = 8;
-            this.label2.Text = "CSR?";
+            this.label2.Text = "CSR";
             // 
             // lbl2
             // 
             this.lbl2.AutoSize = true;
-            this.lbl2.Location = new System.Drawing.Point(156, 33);
+            this.lbl2.Location = new System.Drawing.Point(143, 33);
             this.lbl2.Name = "lbl2";
             this.lbl2.Size = new System.Drawing.Size(37, 13);
             this.lbl2.TabIndex = 7;
@@ -191,7 +271,7 @@
             // txtChars
             // 
             this.txtChars.ForeColor = System.Drawing.Color.Black;
-            this.txtChars.Location = new System.Drawing.Point(230, 111);
+            this.txtChars.Location = new System.Drawing.Point(274, 108);
             this.txtChars.Name = "txtChars";
             this.txtChars.Size = new System.Drawing.Size(234, 20);
             this.txtChars.TabIndex = 6;
@@ -199,15 +279,15 @@
             // txtBanned
             // 
             this.txtBanned.ForeColor = System.Drawing.Color.Black;
-            this.txtBanned.Location = new System.Drawing.Point(230, 85);
+            this.txtBanned.Location = new System.Drawing.Point(274, 82);
             this.txtBanned.Name = "txtBanned";
-            this.txtBanned.Size = new System.Drawing.Size(234, 20);
+            this.txtBanned.Size = new System.Drawing.Size(120, 20);
             this.txtBanned.TabIndex = 5;
             // 
             // txtEmail
             // 
             this.txtEmail.ForeColor = System.Drawing.Color.Black;
-            this.txtEmail.Location = new System.Drawing.Point(230, 33);
+            this.txtEmail.Location = new System.Drawing.Point(274, 30);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(234, 20);
             this.txtEmail.TabIndex = 3;
@@ -215,7 +295,7 @@
             // txtUserName
             // 
             this.txtUserName.ForeColor = System.Drawing.Color.Black;
-            this.txtUserName.Location = new System.Drawing.Point(230, 7);
+            this.txtUserName.Location = new System.Drawing.Point(274, 4);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(234, 20);
             this.txtUserName.TabIndex = 2;
@@ -223,7 +303,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(156, 7);
+            this.label1.Location = new System.Drawing.Point(143, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 13);
             this.label1.TabIndex = 1;
@@ -238,7 +318,7 @@
             this.lsvAccounts.GridLines = true;
             this.lsvAccounts.Location = new System.Drawing.Point(8, 7);
             this.lsvAccounts.Name = "lsvAccounts";
-            this.lsvAccounts.Size = new System.Drawing.Size(123, 180);
+            this.lsvAccounts.Size = new System.Drawing.Size(130, 339);
             this.lsvAccounts.TabIndex = 0;
             this.lsvAccounts.UseCompatibleStateImageBehavior = false;
             this.lsvAccounts.View = System.Windows.Forms.View.Details;
@@ -274,6 +354,10 @@
             // tabPage2
             // 
             this.tabPage2.BackgroundImage = global::ANHAcctMgr.Properties.Resources.grey;
+            this.tabPage2.Controls.Add(this.label13);
+            this.tabPage2.Controls.Add(this.txtCreateCharsAllowed);
+            this.tabPage2.Controls.Add(this.cmbCreateType);
+            this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Controls.Add(this.btnCreate);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.label6);
@@ -284,14 +368,15 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(481, 241);
+            this.tabPage2.Size = new System.Drawing.Size(711, 351);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Create New Account";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(141, 85);
+            this.btnCreate.BackgroundImage = global::ANHAcctMgr.Properties.Resources.grey;
+            this.btnCreate.Location = new System.Drawing.Point(152, 164);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(209, 23);
             this.btnCreate.TabIndex = 15;
@@ -319,21 +404,21 @@
             // 
             // txtCreatePass
             // 
-            this.txtCreatePass.Location = new System.Drawing.Point(80, 59);
+            this.txtCreatePass.Location = new System.Drawing.Point(152, 56);
             this.txtCreatePass.Name = "txtCreatePass";
             this.txtCreatePass.Size = new System.Drawing.Size(234, 20);
             this.txtCreatePass.TabIndex = 12;
             // 
             // txtCreateEmail
             // 
-            this.txtCreateEmail.Location = new System.Drawing.Point(80, 33);
+            this.txtCreateEmail.Location = new System.Drawing.Point(152, 30);
             this.txtCreateEmail.Name = "txtCreateEmail";
             this.txtCreateEmail.Size = new System.Drawing.Size(234, 20);
             this.txtCreateEmail.TabIndex = 11;
             // 
             // txtCreateUser
             // 
-            this.txtCreateUser.Location = new System.Drawing.Point(80, 7);
+            this.txtCreateUser.Location = new System.Drawing.Point(152, 4);
             this.txtCreateUser.Name = "txtCreateUser";
             this.txtCreateUser.Size = new System.Drawing.Size(234, 20);
             this.txtCreateUser.TabIndex = 10;
@@ -347,32 +432,49 @@
             this.label7.TabIndex = 9;
             this.label7.Text = "UserName";
             // 
-            // txtCSR
+            // cmbCreateType
             // 
-            this.txtCSR.ForeColor = System.Drawing.Color.Black;
-            this.txtCSR.Location = new System.Drawing.Point(230, 59);
-            this.txtCSR.Name = "txtCSR";
-            this.txtCSR.Size = new System.Drawing.Size(82, 20);
-            this.txtCSR.TabIndex = 18;
-            // 
-            // cmbCSR
-            // 
-            this.cmbCSR.FormattingEnabled = true;
-            this.cmbCSR.Items.AddRange(new object[] {
+            this.cmbCreateType.FormattingEnabled = true;
+            this.cmbCreateType.Items.AddRange(new object[] {
             "Normal",
             "CSR",
             "Developer"});
-            this.cmbCSR.Location = new System.Drawing.Point(319, 58);
-            this.cmbCSR.Name = "cmbCSR";
-            this.cmbCSR.Size = new System.Drawing.Size(121, 21);
-            this.cmbCSR.TabIndex = 19;
+            this.cmbCreateType.Location = new System.Drawing.Point(152, 108);
+            this.cmbCreateType.Name = "cmbCreateType";
+            this.cmbCreateType.Size = new System.Drawing.Size(180, 21);
+            this.cmbCreateType.TabIndex = 21;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(7, 111);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(86, 13);
+            this.label12.TabIndex = 20;
+            this.label12.Text = "Account Type";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(7, 85);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(87, 13);
+            this.label13.TabIndex = 23;
+            this.label13.Text = "Chars Allowed";
+            // 
+            // txtCreateCharsAllowed
+            // 
+            this.txtCreateCharsAllowed.Location = new System.Drawing.Point(152, 82);
+            this.txtCreateCharsAllowed.Name = "txtCreateCharsAllowed";
+            this.txtCreateCharsAllowed.Size = new System.Drawing.Size(234, 20);
+            this.txtCreateCharsAllowed.TabIndex = 22;
             // 
             // frmAcctMgr
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ANHAcctMgr.Properties.Resources.grey;
-            this.ClientSize = new System.Drawing.Size(500, 273);
+            this.ClientSize = new System.Drawing.Size(728, 384);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.White;
@@ -420,7 +522,16 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteMemberToolStripMenuItem;
-        private System.Windows.Forms.TextBox txtCSR;
         private System.Windows.Forms.ComboBox cmbCSR;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtLastLogin;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtLastCreate;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtJoined;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtCreateCharsAllowed;
+        private System.Windows.Forms.ComboBox cmbCreateType;
+        private System.Windows.Forms.Label label12;
     }
 }

@@ -5,10 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 using ANHDBI;
 using ANHDBI.MySQL;
 using Utilities;
-using MySql.Data.MySqlClient;
 
 namespace ANHAcctMgr
 {
@@ -137,12 +137,12 @@ namespace ANHAcctMgr
 
         public Account(int ID)
         {
-            MySQLRunner.ConnectionString = clsDBStrings.maindbcon;
+            MySQLRunner.ConnectionString = clsDBStrings.toolsdbcon;
             MySqlConnection conGet = new MySqlConnection(MySQLRunner.ConnectionString);
             MySqlDataReader drGet = null;
             string sSQL = "";
 
-            sSQL = "SELECT * FROM account WHERE account_id=" + ID.ToString();
+            sSQL = "CALL sp_AdminAccountData('" + ID.ToString() + "');";
 
             if (MySQLRunner.ExecuteQuery(sSQL, conGet, ref drGet) == true)
             {
@@ -174,24 +174,23 @@ namespace ANHAcctMgr
                 else
                 {
                     sUsername = drGet.GetString(drGet.GetOrdinal("account_username"));
-                    sEmail = drGet.GetString(drGet.GetOrdinal("account_email"));
-                    
+                    sEmail = drGet.GetString(drGet.GetOrdinal("account_email"));                    
                     sCSR = drGet.GetInt32("account_csr");
                     sCharsAllowed = drGet.GetString(drGet.GetOrdinal("account_characters_allowed"));
-                    sLastLogin = "";
+                    sLastLogin = drGet.GetMySqlDateTime("account_lastlogin").ToString();
                     sBanned = drGet.GetString(drGet.GetOrdinal("account_banned"));
-                    sJoinDate = "";
+                    sJoinDate = drGet.GetMySqlDateTime("account_joindate").ToString();
                     sActive = drGet.GetString(drGet.GetOrdinal("account_active"));
-                    //if (drGet.GetString(drGet.GetOrdinal("account_session_key")) == null)
+                    //if (string.IsNullOrEmpty(drGet.GetString(drGet.GetOrdinal("account_session_key"))))
                     //{
-                        sSessionKey = "";
+                    //    sSessionKey = "";
                     //}
                     //else
                     //{
-                        //sSessionKey = drGet.GetString(drGet.GetOrdinal("account_session_key"));
+                    //    sSessionKey = drGet.GetString(drGet.GetOrdinal("account_session_key"));
                     //}
-                    sLoggedIn ="";
-                    sLastCreate = "";
+                    sLoggedIn = drGet.GetString(drGet.GetOrdinal("account_loggedin"));
+                    sLastCreate = drGet.GetMySqlDateTime("account_lastcreate").ToString();
                     sAuthenticated = drGet.GetString(drGet.GetOrdinal("account_authenticated"));
                     nID = ID;
                     nStationID = StationID;
@@ -241,23 +240,12 @@ namespace ANHAcctMgr
 
         private bool Update()
         {
-            MySQLRunner.ConnectionString = clsDBStrings.maindbcon;
+            MySQLRunner.ConnectionString = clsDBStrings.utilitydbcon;
             MySqlConnection conUpdate = new MySqlConnection(MySQLRunner.ConnectionString);
             string sSQL = "";
             bool flgReturn = false;
-
-            //sSQL = "UPDATE clients SET " +
-            //         "first_name='" + sFirstName + "', " +
-            //         "last_name='" + sLastName + "', " +
-            //         "email='" + sEmail + "', " +
-            //         "street_address='" + sAddress + "', " +
-            //         "city='" + sCity + "', " +
-            //         "state='" + sState + "', " +
-            //         "zip='" + sZip + "', " +
-            //         "phone='" + sPhone + "', " +
-            //         "comments='" + sComments + "' " +
-            //         "WHERE userid=" + nID.ToString();
-
+            sSQL = "CALL sp_AdminAccountUpdate('" + nID.ToString() + "','" + sUsername + "','" + nStationID + "', '" + sCSR + "', '" + sEmail + "','" + sBanned + "','" + sCharsAllowed + "');";
+           
             if (MySQLRunner.ExecuteNonQuery(sSQL, conUpdate) == false)
                 flgReturn = false;
             else
@@ -332,7 +320,7 @@ namespace ANHAcctMgr
             string sSQL = "";
             int nMax = 0;
 
-            sSQL = "SELECT MAX(account_id) AS ID FROM account";
+            sSQL = "select MAX(account_id) AS ID from account";
 
             if (MySQLRunner.ExecuteQuery(sSQL, conGet, ref drGet) == true)
             {

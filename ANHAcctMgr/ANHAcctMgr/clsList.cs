@@ -23,21 +23,21 @@ namespace ANHAcctMgr
          *******************/
         public static SortedList<int, Account> AccountList()
         {
-            MySQLRunner.ConnectionString = clsDBStrings.maindbcon;
+            MySQLRunner.ConnectionString = clsDBStrings.configdbcon;
             SortedList<int, Account> lsAccounts = new SortedList<int, Account>();
             MySqlConnection conGet = new MySqlConnection(MySQLRunner.ConnectionString);
             MySqlDataReader drGet = null;
             string sSQL = "";
             Account oAccount;
 
-            sSQL = "SELECT account_id FROM account";
+            sSQL = "CALL sp_AdminAccountList();";
 
             if (MySQLRunner.ExecuteQuery(sSQL, conGet, ref drGet) == true)
             {
 
                 while (drGet.Read())
                 {
-                    oAccount = new Account(drGet.GetInt32(drGet.GetOrdinal("account_id")));
+                    oAccount = new Account(drGet.GetInt32("account_id"));
                     lsAccounts.Add(oAccount.ID, oAccount);
                 }
             }
