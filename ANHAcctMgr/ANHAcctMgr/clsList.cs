@@ -13,6 +13,8 @@ using MySql.Data.MySqlClient;
 using ANHDBI;
 using ANHDBI.MySQL;
 using Utilities;
+using ANHMySQLLib;
+using ANHMySQLLib.Command;
 
 namespace ANHAcctMgr
 {
@@ -21,39 +23,41 @@ namespace ANHAcctMgr
         /*******************
          * Accounts Sorted List
          *******************/
-        public static SortedList<int, Account> AccountList()
+        public static List<Account> GetAllAccounts()
         {
-            MySQLRunner.ConnectionString = clsDBStrings.configdbcon;
-            SortedList<int, Account> lsAccounts = new SortedList<int, Account>();
-            MySqlConnection conGet = new MySqlConnection(MySQLRunner.ConnectionString);
-            MySqlDataReader drGet = null;
-            string sSQL = "";
-            Account oAccount;
 
-            sSQL = "CALL sp_AdminAccountList();";
+            // Sync query example. Bad bad bad, dont use it 
+            Global.Startup();
+            List<Account> accounts = new List<Account>();
 
-            if (MySQLRunner.ExecuteQuery(sSQL, conGet, ref drGet) == true)
+            AsyncMysqlQuery query = new AsyncMysqlQuery("CALL swganh_utility.sp_AdminAccountList();");
+
+            query.SetHandler(delegate(MySqlDataReader reader)
             {
 
-                while (drGet.Read())
+
+                if (query.Error == null)
                 {
-                    oAccount = new Account(drGet.GetInt32("account_id"));
-                    lsAccounts.Add(oAccount.ID, oAccount);
+
+                    while (reader.Read())
+                    {
+                        Account account = new Account(reader);
+
+                        accounts.Add(account);
+                    }
                 }
-            }
-            else
-            {
-                MessageBox.Show("Error connecting to the database.");
-            }
+                else
+                {
+                    Console.WriteLine("something went wrong");
+                }
 
-            if (conGet.State == ConnectionState.Open)
-            {
-                if (drGet != null)
-                    drGet.Close();
 
-                conGet.Close();
-            }
-            return lsAccounts;
+            });
+
+            Global.MysqlEngine.ExecuteSync(query);
+
+            return accounts;
         }
+
     }
 }
