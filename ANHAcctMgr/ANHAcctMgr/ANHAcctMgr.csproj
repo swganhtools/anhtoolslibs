@@ -35,9 +35,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ANHDBI\ANHDBI\bin\Debug\ANHDBI.dll</HintPath>
     </Reference>
-    <Reference Include="ANHMySQLLib">
-      <HintPath>..\..\ANHMySQLLib\ANHMySQLLib\bin\Debug\ANHMySQLLib.dll</HintPath>
-    </Reference>
     <Reference Include="MySql.Data, Version=6.2.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -55,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsAccount.cs" />
+    <Compile Include="clsAcct.cs" />
     <Compile Include="clsList.cs" />
     <Compile Include="frmAcctMgr.cs">
       <SubType>Form</SubType>
