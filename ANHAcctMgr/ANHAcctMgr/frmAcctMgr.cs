@@ -75,7 +75,7 @@ namespace ANHAcctMgr
                 return;
             }
 
-            objAccount = accounts[int.Parse(lsvAccounts.SelectedItems[0].Tag.ToString())];
+            objAccount = lsvAccounts.SelectedItems[0].Tag.ToString());
 
                     txtUserName.Text = objAccount.UserName;
                     txtEmail.Text = objAccount.Email;
