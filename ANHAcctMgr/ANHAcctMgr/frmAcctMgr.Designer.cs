@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAcctMgr));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label11 = new System.Windows.Forms.Label();
@@ -58,6 +59,10 @@
             this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteMemberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtCreateCharsAllowed = new System.Windows.Forms.TextBox();
+            this.cmbCreateType = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.btnCreate = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -65,10 +70,6 @@
             this.txtCreateEmail = new System.Windows.Forms.TextBox();
             this.txtCreateUser = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.cmbCreateType = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtCreateCharsAllowed = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -87,7 +88,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.BackgroundImage = global::ANHAcctMgr.Properties.Resources.grey;
+            this.tabPage1.BackgroundImage = global::ANHAcctMgr.Properties.Resources.offwhite;
             this.tabPage1.Controls.Add(this.label11);
             this.tabPage1.Controls.Add(this.txtJoined);
             this.tabPage1.Controls.Add(this.label10);
@@ -186,7 +187,7 @@
             // 
             // btnPassUpdate
             // 
-            this.btnPassUpdate.BackgroundImage = global::ANHAcctMgr.Properties.Resources.grey;
+            this.btnPassUpdate.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPassUpdate.BackgroundImage")));
             this.btnPassUpdate.Location = new System.Drawing.Point(264, 308);
             this.btnPassUpdate.Name = "btnPassUpdate";
             this.btnPassUpdate.Size = new System.Drawing.Size(152, 23);
@@ -213,7 +214,7 @@
             // 
             // btnReset
             // 
-            this.btnReset.BackgroundImage = global::ANHAcctMgr.Properties.Resources.grey;
+            this.btnReset.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnReset.BackgroundImage")));
             this.btnReset.Location = new System.Drawing.Point(328, 239);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(152, 23);
@@ -223,7 +224,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.BackgroundImage = global::ANHAcctMgr.Properties.Resources.grey;
+            this.btnSave.BackgroundImage = global::ANHAcctMgr.Properties.Resources.btn;
             this.btnSave.Location = new System.Drawing.Point(170, 239);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(152, 23);
@@ -314,7 +315,7 @@
             this.lsvAccounts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1});
             this.lsvAccounts.ContextMenuStrip = this.contextMenuStrip1;
-            this.lsvAccounts.ForeColor = System.Drawing.Color.Black;
+            this.lsvAccounts.ForeColor = System.Drawing.Color.Sienna;
             this.lsvAccounts.GridLines = true;
             this.lsvAccounts.Location = new System.Drawing.Point(8, 7);
             this.lsvAccounts.Name = "lsvAccounts";
@@ -353,7 +354,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.BackgroundImage = global::ANHAcctMgr.Properties.Resources.grey;
+            this.tabPage2.BackgroundImage = global::ANHAcctMgr.Properties.Resources.offwhite;
             this.tabPage2.Controls.Add(this.label13);
             this.tabPage2.Controls.Add(this.txtCreateCharsAllowed);
             this.tabPage2.Controls.Add(this.cmbCreateType);
@@ -373,9 +374,46 @@
             this.tabPage2.Text = "Create New Account";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(7, 85);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(87, 13);
+            this.label13.TabIndex = 23;
+            this.label13.Text = "Chars Allowed";
+            // 
+            // txtCreateCharsAllowed
+            // 
+            this.txtCreateCharsAllowed.Location = new System.Drawing.Point(152, 82);
+            this.txtCreateCharsAllowed.Name = "txtCreateCharsAllowed";
+            this.txtCreateCharsAllowed.Size = new System.Drawing.Size(234, 20);
+            this.txtCreateCharsAllowed.TabIndex = 22;
+            // 
+            // cmbCreateType
+            // 
+            this.cmbCreateType.FormattingEnabled = true;
+            this.cmbCreateType.Items.AddRange(new object[] {
+            "Normal",
+            "CSR",
+            "Developer"});
+            this.cmbCreateType.Location = new System.Drawing.Point(152, 108);
+            this.cmbCreateType.Name = "cmbCreateType";
+            this.cmbCreateType.Size = new System.Drawing.Size(180, 21);
+            this.cmbCreateType.TabIndex = 21;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(7, 111);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(86, 13);
+            this.label12.TabIndex = 20;
+            this.label12.Text = "Account Type";
+            // 
             // btnCreate
             // 
-            this.btnCreate.BackgroundImage = global::ANHAcctMgr.Properties.Resources.grey;
+            this.btnCreate.BackgroundImage = global::ANHAcctMgr.Properties.Resources.btn;
             this.btnCreate.Location = new System.Drawing.Point(152, 164);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(209, 23);
@@ -432,52 +470,15 @@
             this.label7.TabIndex = 9;
             this.label7.Text = "UserName";
             // 
-            // cmbCreateType
-            // 
-            this.cmbCreateType.FormattingEnabled = true;
-            this.cmbCreateType.Items.AddRange(new object[] {
-            "Normal",
-            "CSR",
-            "Developer"});
-            this.cmbCreateType.Location = new System.Drawing.Point(152, 108);
-            this.cmbCreateType.Name = "cmbCreateType";
-            this.cmbCreateType.Size = new System.Drawing.Size(180, 21);
-            this.cmbCreateType.TabIndex = 21;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(7, 111);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(86, 13);
-            this.label12.TabIndex = 20;
-            this.label12.Text = "Account Type";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(7, 85);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(87, 13);
-            this.label13.TabIndex = 23;
-            this.label13.Text = "Chars Allowed";
-            // 
-            // txtCreateCharsAllowed
-            // 
-            this.txtCreateCharsAllowed.Location = new System.Drawing.Point(152, 82);
-            this.txtCreateCharsAllowed.Name = "txtCreateCharsAllowed";
-            this.txtCreateCharsAllowed.Size = new System.Drawing.Size(234, 20);
-            this.txtCreateCharsAllowed.TabIndex = 22;
-            // 
             // frmAcctMgr
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::ANHAcctMgr.Properties.Resources.grey;
+            this.BackgroundImage = global::ANHAcctMgr.Properties.Resources.lightgrey;
             this.ClientSize = new System.Drawing.Size(728, 384);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.Color.White;
+            this.ForeColor = System.Drawing.Color.Sienna;
             this.Name = "frmAcctMgr";
             this.Text = "SWG:ANH Account Manager";
             this.Load += new System.EventHandler(this.frmAccounts_Load);
