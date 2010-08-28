@@ -5,8 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using ANHMySQLLib;
-using ANHMySQLLib.Command;
 using ANHDBI;
 using ANHDBI.MySQL;
 using Utilities;
@@ -19,7 +17,6 @@ namespace ANHAcctMgr
         private SortedList<int, Account> lsAccounts;
         private Account objAccount;
         private bool flgAccountsLoaded = false;
-        
         public frmAcctMgr()
         {
             InitializeComponent();
@@ -38,14 +35,14 @@ namespace ANHAcctMgr
         }
         private void frmAccounts_Load(object sender, EventArgs e)
         {
-            Global.Startup();
             cmbCreateType.SelectedItem = "Normal";
             listaccts();
         }
         
         public void listaccts()
         {
-            
+            //lsvAccounts.Items.Clear();
+            MySQLRunner.ConnectionString = clsDBStrings.maindbcon;
 
             flgAccountsLoaded = false;
             ListViewItem lsvItem;

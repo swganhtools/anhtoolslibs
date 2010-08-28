@@ -10,11 +10,10 @@ using Microsoft.Win32;
 using System.Diagnostics;
 using System.Configuration;
 using MySql.Data.MySqlClient;
-//using ANHDBI;
-//using ANHDBI.MySQL;
-//using Utilities;
-using ANHMySQLLib;
-using ANHMySQLLib.Command;
+using ANHDBI;
+using ANHDBI.MySQL;
+using Utilities;
+
 namespace ANHAcctMgr
 {
     class Lists
@@ -24,36 +23,36 @@ namespace ANHAcctMgr
          *******************/
         public static SortedList<int, Account> AccountList()
         {
-            //Global.Startup();
+            MySQLRunner.ConnectionString = clsDBStrings.configdbcon;
             SortedList<int, Account> lsAccounts = new SortedList<int, Account>();
+            MySqlConnection conGet = new MySqlConnection(MySQLRunner.ConnectionString);
+            MySqlDataReader drGet = null;
+            string sSQL = "";
             Account oAccount;
 
-            MySqlCommand command = new MySqlCommand("swganh_utility.sp_AdminAccountList");
+            sSQL = "CALL sp_AdminAccountList();";
 
-            command.Parameters.Add(new MySqlParameter());
-            command.CommandType = System.Data.CommandType.StoredProcedure;
-
-            AsyncMysqlQuery query = new AsyncMysqlQuery(command);
-
-            query.SetHandler(delegate(MySqlDataReader reader)
+            if (MySQLRunner.ExecuteQuery(sSQL, conGet, ref drGet) == true)
             {
-                if (query.Error == null)
-                {
-                    while (reader.Read())
-                    {
-                        oAccount = new Account(reader.GetInt32("account_id"));
-                        lsAccounts.Add(oAccount.ID, oAccount);
-                    }
-                }
-           
-                else
-                {
-                    //Console.WriteLine("something went wrong");
-                   // Console.WriteLine(query.Error.Message);
-                }
-            });
 
-            Global.MysqlEngine.ExecuteAsync(query);
+                while (drGet.Read())
+                {
+                    oAccount = new Account(drGet.GetInt32("account_id"));
+                    lsAccounts.Add(oAccount.ID, oAccount);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Error connecting to the database.");
+            }
+
+            if (conGet.State == ConnectionState.Open)
+            {
+                if (drGet != null)
+                    drGet.Close();
+
+                conGet.Close();
+            }
             return lsAccounts;
         }
     }
