@@ -10,10 +10,11 @@ using Microsoft.Win32;
 using System.Diagnostics;
 using System.Configuration;
 using MySql.Data.MySqlClient;
-using ANHDBI;
-using ANHDBI.MySQL;
-using Utilities;
-
+//using ANHDBI;
+//using ANHDBI.MySQL;
+//using Utilities;
+using ANHMySQLLib;
+using ANHMySQLLib.Command;
 namespace ANHAcctMgr
 {
     class Lists
@@ -23,36 +24,36 @@ namespace ANHAcctMgr
          *******************/
         public static SortedList<int, Account> AccountList()
         {
-            MySQLRunner.ConnectionString = clsDBStrings.configdbcon;
+            //Global.Startup();
             SortedList<int, Account> lsAccounts = new SortedList<int, Account>();
-            MySqlConnection conGet = new MySqlConnection(MySQLRunner.ConnectionString);
-            MySqlDataReader drGet = null;
-            string sSQL = "";
             Account oAccount;
 
-            sSQL = "CALL sp_AdminAccountList();";
+            MySqlCommand command = new MySqlCommand("swganh_utility.sp_AdminAccountList");
 
-            if (MySQLRunner.ExecuteQuery(sSQL, conGet, ref drGet) == true)
+            command.Parameters.Add(new MySqlParameter());
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+
+            AsyncMysqlQuery query = new AsyncMysqlQuery(command);
+
+            query.SetHandler(delegate(MySqlDataReader reader)
             {
-
-                while (drGet.Read())
+                if (query.Error == null)
                 {
-                    oAccount = new Account(drGet.GetInt32("account_id"));
-                    lsAccounts.Add(oAccount.ID, oAccount);
+                    while (reader.Read())
+                    {
+                        oAccount = new Account(reader.GetInt32("account_id"));
+                        lsAccounts.Add(oAccount.ID, oAccount);
+                    }
                 }
-            }
-            else
-            {
-                MessageBox.Show("Error connecting to the database.");
-            }
+           
+                else
+                {
+                    //Console.WriteLine("something went wrong");
+                   // Console.WriteLine(query.Error.Message);
+                }
+            });
 
-            if (conGet.State == ConnectionState.Open)
-            {
-                if (drGet != null)
-                    drGet.Close();
-
-                conGet.Close();
-            }
+            Global.MysqlEngine.ExecuteAsync(query);
             return lsAccounts;
         }
     }

@@ -624,25 +624,23 @@ namespace ANHMonitor
             Thread.Sleep(30000);
             zonetatooine();
             Thread.Sleep(20000);
+            zonecorellia();
+            Thread.Sleep(20000);
+            zonedantooine();
+            Thread.Sleep(20000);
+            zonedathomir();
+            Thread.Sleep(20000);
+            zoneendor();
+            Thread.Sleep(20000);
+            zonelok();
+            Thread.Sleep(20000);
             zonenaboo();
             Thread.Sleep(20000);
-            zonecorellia();
-            //Thread.Sleep(20000);
-            //zonedantooine();
-            //Thread.Sleep(20000);
-            //zonedathomir();
-            //Thread.Sleep(20000);
-            //zoneendor();
-            //Thread.Sleep(20000);
-            //zonelok();
-            //Thread.Sleep(20000);
-            //zonenaboo();
-            //Thread.Sleep(20000);
-            //zonerori();
-            //Thread.Sleep(20000);
-            //zonetalus();
-            //Thread.Sleep(20000);
-            //zoneyavin();
+            zonerori();
+            Thread.Sleep(20000);
+            zonetalus();
+            Thread.Sleep(20000);
+            zoneyavin();
             flgStartAnh = true;
         }
         private void RestartANH()
@@ -719,27 +717,25 @@ namespace ANHMonitor
             Thread.Sleep(10000);
             zonetutorial();
             Thread.Sleep(30000);
-            zonetatooine();
+            zonetatooine();           
+            Thread.Sleep(20000);
+            zonecorellia();
+            Thread.Sleep(20000);
+            zonedantooine();
+            Thread.Sleep(20000);
+            zonedathomir();
+            Thread.Sleep(20000);
+            zoneendor();
+            Thread.Sleep(20000);
+            zonelok();
             Thread.Sleep(20000);
             zonenaboo();
             Thread.Sleep(20000);
-            zonecorellia();
-            //Thread.Sleep(20000);
-            //zonedantooine();
-            //Thread.Sleep(20000);
-            //zonedathomir();
-            //Thread.Sleep(20000);
-            //zoneendor();
-            //Thread.Sleep(20000);
-            //zonelok();
-            //Thread.Sleep(20000);
-            //zonenaboo();
-            //Thread.Sleep(20000);
-            //zonerori();
-            //Thread.Sleep(20000);
-            //zonetalus();
-            //Thread.Sleep(20000);
-            //zoneyavin();
+            zonerori();
+            Thread.Sleep(20000);
+            zonetalus();
+            Thread.Sleep(20000);
+            zoneyavin();
             flgRestartAnh = true;
         }
         private void StopANH()
@@ -872,7 +868,7 @@ namespace ANHMonitor
                         {
                             if (logininfo[1] == "zones")
                             {
-                                if (tutorialzone != null && tatooinezone != null && naboozone != null && corelliazone != null)
+                                if (tutorialzone != null && tatooinezone != null && naboozone != null && corelliazone != null && dantooinezone != null && dathomirzone != null && endorzone != null && lokzone != null && rorizone != null && taluszone != null && yavinzone != null)
                                 {
                                     streamWriter.WriteLine("success");
 
