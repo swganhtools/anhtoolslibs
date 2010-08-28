@@ -62,6 +62,7 @@
     <Compile Include="frmAcctMgr.Designer.cs">
       <DependentUpon>frmAcctMgr.cs</DependentUpon>
     </Compile>
+    <Compile Include="Global.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

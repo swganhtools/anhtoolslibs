@@ -16,12 +16,13 @@ namespace ANHAcctMgr
 {
     public partial class frmAcctMgr : Form
     {
-        List<Account> accounts = Account.GetAllAccounts();
+        List<Account> accounts = Lists.GetAllAccounts();
         private Account objAccount;
         private bool flgAccountsLoaded = false;
         public frmAcctMgr()
         {
             InitializeComponent();
+
         }
         private void ClearAccount()
         {
@@ -37,15 +38,17 @@ namespace ANHAcctMgr
         }
         private void frmAccounts_Load(object sender, EventArgs e)
         {
+            
+            //Global.Shutdown();
             cmbCreateType.SelectedItem = "Normal";
             listaccts();
-            Global.Startup();
+          
         }
         
         public void listaccts()
         {
             //lsvAccounts.Items.Clear();
-            MySQLRunner.ConnectionString = clsDBStrings.maindbcon;
+           // MySQLRunner.ConnectionString = clsDBStrings.maindbcon;
 
             flgAccountsLoaded = false;
             ListViewItem lsvItem;
@@ -67,15 +70,15 @@ namespace ANHAcctMgr
         }
         private void lsvAccounts_DoubleClick(object sender, EventArgs e)
         {
-            // if (lsvAccounts.SelectedItems.Count <= 0)
-            //{
-            //    return;
-            //}
+             if (lsvAccounts.SelectedItems.Count <= 0)
+            {
+                return;
+            }
 
-            //objAccount = lsAccounts[int.Parse(lsvAccounts.SelectedItems[0].Tag.ToString())];
+            objAccount = accounts[int.Parse(lsvAccounts.SelectedItems[0].Tag.ToString())];
 
-            //        txtUserName.Text = objAccount.Username;
-            //        txtEmail.Text = objAccount.Email;
+                    txtUserName.Text = objAccount.UserName;
+                    txtEmail.Text = objAccount.Email;
             //        string csrflag = objAccount.CSR.ToString();
             //if (csrflag == "0"){
             //    cmbCSR.SelectedItem = "Normal";
@@ -212,5 +215,7 @@ namespace ANHAcctMgr
             listaccts();
             ClearAccount();
         }
+
+       
     }
 }

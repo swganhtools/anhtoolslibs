@@ -27,22 +27,22 @@ namespace ANHAcctMgr
         {
 
             // Sync query example. Bad bad bad, dont use it 
-            Global.Startup();
+           Global.Startup();
             List<Account> accounts = new List<Account>();
 
             AsyncMysqlQuery query = new AsyncMysqlQuery("CALL swganh_utility.sp_AdminAccountList();");
 
             query.SetHandler(delegate(MySqlDataReader reader)
             {
-
-
                 if (query.Error == null)
                 {
+                    Console.WriteLine("query completed ({0} fields)", reader.FieldCount);
+
+
 
                     while (reader.Read())
                     {
-                        Account account = new Account(reader);
-
+                        Account account = new Account(reader);                        
                         accounts.Add(account);
                     }
                 }
@@ -54,9 +54,10 @@ namespace ANHAcctMgr
 
             });
 
-            Global.MysqlEngine.ExecuteSync(query);
-
+            Global.MysqlEngine.ExecuteAsync(query);
+            Global.Shutdown();
             return accounts;
+            
         }
 
     }
