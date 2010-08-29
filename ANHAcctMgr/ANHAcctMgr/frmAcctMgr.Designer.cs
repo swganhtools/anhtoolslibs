@@ -315,7 +315,7 @@
             this.lsvAccounts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1});
             this.lsvAccounts.ContextMenuStrip = this.contextMenuStrip1;
-            this.lsvAccounts.ForeColor = System.Drawing.Color.Sienna;
+            this.lsvAccounts.ForeColor = System.Drawing.Color.Black;
             this.lsvAccounts.GridLines = true;
             this.lsvAccounts.Location = new System.Drawing.Point(8, 7);
             this.lsvAccounts.Name = "lsvAccounts";
@@ -478,7 +478,7 @@
             this.ClientSize = new System.Drawing.Size(728, 384);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.Color.Sienna;
+            this.ForeColor = System.Drawing.Color.Black;
             this.Name = "frmAcctMgr";
             this.Text = "SWG:ANH Account Manager";
             this.Load += new System.EventHandler(this.frmAccounts_Load);
