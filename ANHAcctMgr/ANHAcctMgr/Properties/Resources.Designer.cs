@@ -60,9 +60,23 @@ namespace ANHAcctMgr.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap btn {
+            get {
+                object obj = ResourceManager.GetObject("btn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap grey {
             get {
                 object obj = ResourceManager.GetObject("grey", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lightgrey {
+            get {
+                object obj = ResourceManager.GetObject("lightgrey", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -77,6 +91,13 @@ namespace ANHAcctMgr.Properties {
         internal static System.Drawing.Bitmap newlight {
             get {
                 object obj = ResourceManager.GetObject("newlight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap offwhite {
+            get {
+                object obj = ResourceManager.GetObject("offwhite", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -28,7 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabUtility = new System.Windows.Forms.TabPage();
+            this.tabZones = new System.Windows.Forms.TabPage();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txtConnection = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -37,7 +41,7 @@
             this.txtPing = new System.Windows.Forms.TextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.txtLogin = new System.Windows.Forms.TextBox();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.txtTutorial = new System.Windows.Forms.TextBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
@@ -60,13 +64,15 @@
             this.txtTalus = new System.Windows.Forms.TextBox();
             this.tabPage15 = new System.Windows.Forms.TabPage();
             this.txtYavin = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
+            this.tabUtility.SuspendLayout();
+            this.tabZones.SuspendLayout();
+            this.tabControl2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
-            this.tabControl2.SuspendLayout();
+            this.tabControl3.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.tabPage7.SuspendLayout();
@@ -80,21 +86,64 @@
             this.tabPage15.SuspendLayout();
             this.SuspendLayout();
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Location = new System.Drawing.Point(9, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "label1";
+            // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Location = new System.Drawing.Point(12, 5);
+            this.tabControl1.Controls.Add(this.tabUtility);
+            this.tabControl1.Controls.Add(this.tabZones);
+            this.tabControl1.Location = new System.Drawing.Point(0, 25);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(638, 458);
-            this.tabControl1.TabIndex = 1;
+            this.tabControl1.Size = new System.Drawing.Size(657, 497);
+            this.tabControl1.TabIndex = 4;
+            // 
+            // tabUtility
+            // 
+            this.tabUtility.Controls.Add(this.tabControl2);
+            this.tabUtility.Location = new System.Drawing.Point(4, 22);
+            this.tabUtility.Name = "tabUtility";
+            this.tabUtility.Padding = new System.Windows.Forms.Padding(3);
+            this.tabUtility.Size = new System.Drawing.Size(649, 471);
+            this.tabUtility.TabIndex = 0;
+            this.tabUtility.Text = "Utility Servers";
+            this.tabUtility.UseVisualStyleBackColor = true;
+            // 
+            // tabZones
+            // 
+            this.tabZones.Controls.Add(this.tabControl3);
+            this.tabZones.Location = new System.Drawing.Point(4, 22);
+            this.tabZones.Name = "tabZones";
+            this.tabZones.Padding = new System.Windows.Forms.Padding(3);
+            this.tabZones.Size = new System.Drawing.Size(649, 471);
+            this.tabZones.TabIndex = 1;
+            this.tabZones.Text = "Zone Servers";
+            this.tabZones.UseVisualStyleBackColor = true;
+            // 
+            // tabControl2
+            // 
+            this.tabControl2.Controls.Add(this.tabPage1);
+            this.tabControl2.Controls.Add(this.tabPage2);
+            this.tabControl2.Controls.Add(this.tabPage3);
+            this.tabControl2.Controls.Add(this.tabPage4);
+            this.tabControl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl2.Location = new System.Drawing.Point(6, 6);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(638, 458);
+            this.tabControl2.TabIndex = 4;
             // 
             // tabPage1
             // 
-            this.tabPage1.BackgroundImage = global::ANHMonitor.Properties.Resources.newgui;
+            this.tabPage1.BackgroundImage = global::ANHMonitor.Properties.Resources.offwhite;
             this.tabPage1.Controls.Add(this.txtConnection);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -106,9 +155,9 @@
             // 
             // txtConnection
             // 
-            this.txtConnection.BackColor = System.Drawing.Color.Teal;
-            this.txtConnection.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConnection.ForeColor = System.Drawing.Color.White;
+            this.txtConnection.BackColor = System.Drawing.Color.White;
+            this.txtConnection.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConnection.ForeColor = System.Drawing.Color.Black;
             this.txtConnection.Location = new System.Drawing.Point(6, 7);
             this.txtConnection.Multiline = true;
             this.txtConnection.Name = "txtConnection";
@@ -129,9 +178,9 @@
             // 
             // txtChat
             // 
-            this.txtChat.BackColor = System.Drawing.Color.Teal;
-            this.txtChat.Font = new System.Drawing.Font("Lucida Console", 8.25F);
-            this.txtChat.ForeColor = System.Drawing.Color.White;
+            this.txtChat.BackColor = System.Drawing.Color.White;
+            this.txtChat.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Bold);
+            this.txtChat.ForeColor = System.Drawing.Color.Black;
             this.txtChat.Location = new System.Drawing.Point(6, 7);
             this.txtChat.Multiline = true;
             this.txtChat.Name = "txtChat";
@@ -151,9 +200,9 @@
             // 
             // txtPing
             // 
-            this.txtPing.BackColor = System.Drawing.Color.Teal;
-            this.txtPing.Font = new System.Drawing.Font("Lucida Console", 8.25F);
-            this.txtPing.ForeColor = System.Drawing.Color.White;
+            this.txtPing.BackColor = System.Drawing.Color.White;
+            this.txtPing.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Bold);
+            this.txtPing.ForeColor = System.Drawing.Color.Black;
             this.txtPing.Location = new System.Drawing.Point(6, 7);
             this.txtPing.Multiline = true;
             this.txtPing.Name = "txtPing";
@@ -174,9 +223,9 @@
             // 
             // txtLogin
             // 
-            this.txtLogin.BackColor = System.Drawing.Color.Teal;
-            this.txtLogin.Font = new System.Drawing.Font("Lucida Console", 8.25F);
-            this.txtLogin.ForeColor = System.Drawing.Color.White;
+            this.txtLogin.BackColor = System.Drawing.Color.White;
+            this.txtLogin.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Bold);
+            this.txtLogin.ForeColor = System.Drawing.Color.Black;
             this.txtLogin.Location = new System.Drawing.Point(6, 7);
             this.txtLogin.Multiline = true;
             this.txtLogin.Name = "txtLogin";
@@ -184,24 +233,24 @@
             this.txtLogin.Size = new System.Drawing.Size(617, 419);
             this.txtLogin.TabIndex = 1;
             // 
-            // tabControl2
+            // tabControl3
             // 
-            this.tabControl2.Controls.Add(this.tabPage5);
-            this.tabControl2.Controls.Add(this.tabPage6);
-            this.tabControl2.Controls.Add(this.tabPage7);
-            this.tabControl2.Controls.Add(this.tabPage8);
-            this.tabControl2.Controls.Add(this.tabPage9);
-            this.tabControl2.Controls.Add(this.tabPage10);
-            this.tabControl2.Controls.Add(this.tabPage11);
-            this.tabControl2.Controls.Add(this.tabPage12);
-            this.tabControl2.Controls.Add(this.tabPage13);
-            this.tabControl2.Controls.Add(this.tabPage14);
-            this.tabControl2.Controls.Add(this.tabPage15);
-            this.tabControl2.Location = new System.Drawing.Point(652, 6);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(613, 457);
-            this.tabControl2.TabIndex = 2;
+            this.tabControl3.Controls.Add(this.tabPage5);
+            this.tabControl3.Controls.Add(this.tabPage6);
+            this.tabControl3.Controls.Add(this.tabPage7);
+            this.tabControl3.Controls.Add(this.tabPage8);
+            this.tabControl3.Controls.Add(this.tabPage9);
+            this.tabControl3.Controls.Add(this.tabPage10);
+            this.tabControl3.Controls.Add(this.tabPage11);
+            this.tabControl3.Controls.Add(this.tabPage12);
+            this.tabControl3.Controls.Add(this.tabPage13);
+            this.tabControl3.Controls.Add(this.tabPage14);
+            this.tabControl3.Controls.Add(this.tabPage15);
+            this.tabControl3.Location = new System.Drawing.Point(6, 6);
+            this.tabControl3.Name = "tabControl3";
+            this.tabControl3.SelectedIndex = 0;
+            this.tabControl3.Size = new System.Drawing.Size(613, 457);
+            this.tabControl3.TabIndex = 5;
             // 
             // tabPage5
             // 
@@ -216,9 +265,9 @@
             // 
             // txtTutorial
             // 
-            this.txtTutorial.BackColor = System.Drawing.Color.Teal;
-            this.txtTutorial.Font = new System.Drawing.Font("Lucida Console", 8.25F);
-            this.txtTutorial.ForeColor = System.Drawing.Color.White;
+            this.txtTutorial.BackColor = System.Drawing.Color.White;
+            this.txtTutorial.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Bold);
+            this.txtTutorial.ForeColor = System.Drawing.Color.Black;
             this.txtTutorial.Location = new System.Drawing.Point(6, 6);
             this.txtTutorial.Multiline = true;
             this.txtTutorial.Name = "txtTutorial";
@@ -239,9 +288,9 @@
             // 
             // txtTatooine
             // 
-            this.txtTatooine.BackColor = System.Drawing.Color.Teal;
-            this.txtTatooine.Font = new System.Drawing.Font("Lucida Console", 8.25F);
-            this.txtTatooine.ForeColor = System.Drawing.Color.White;
+            this.txtTatooine.BackColor = System.Drawing.Color.White;
+            this.txtTatooine.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Bold);
+            this.txtTatooine.ForeColor = System.Drawing.Color.Black;
             this.txtTatooine.Location = new System.Drawing.Point(6, 6);
             this.txtTatooine.Multiline = true;
             this.txtTatooine.Name = "txtTatooine";
@@ -261,9 +310,9 @@
             // 
             // txtCorellia
             // 
-            this.txtCorellia.BackColor = System.Drawing.Color.Teal;
-            this.txtCorellia.Font = new System.Drawing.Font("Lucida Console", 8.25F);
-            this.txtCorellia.ForeColor = System.Drawing.Color.White;
+            this.txtCorellia.BackColor = System.Drawing.Color.White;
+            this.txtCorellia.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Bold);
+            this.txtCorellia.ForeColor = System.Drawing.Color.Black;
             this.txtCorellia.Location = new System.Drawing.Point(6, 6);
             this.txtCorellia.Multiline = true;
             this.txtCorellia.Name = "txtCorellia";
@@ -283,9 +332,9 @@
             // 
             // txtDantooine
             // 
-            this.txtDantooine.BackColor = System.Drawing.Color.Teal;
-            this.txtDantooine.Font = new System.Drawing.Font("Lucida Console", 8.25F);
-            this.txtDantooine.ForeColor = System.Drawing.Color.White;
+            this.txtDantooine.BackColor = System.Drawing.Color.White;
+            this.txtDantooine.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Bold);
+            this.txtDantooine.ForeColor = System.Drawing.Color.Black;
             this.txtDantooine.Location = new System.Drawing.Point(6, 6);
             this.txtDantooine.Multiline = true;
             this.txtDantooine.Name = "txtDantooine";
@@ -305,9 +354,9 @@
             // 
             // txtDathomir
             // 
-            this.txtDathomir.BackColor = System.Drawing.Color.Teal;
-            this.txtDathomir.Font = new System.Drawing.Font("Lucida Console", 8.25F);
-            this.txtDathomir.ForeColor = System.Drawing.Color.White;
+            this.txtDathomir.BackColor = System.Drawing.Color.White;
+            this.txtDathomir.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Bold);
+            this.txtDathomir.ForeColor = System.Drawing.Color.Black;
             this.txtDathomir.Location = new System.Drawing.Point(6, 6);
             this.txtDathomir.Multiline = true;
             this.txtDathomir.Name = "txtDathomir";
@@ -327,9 +376,9 @@
             // 
             // txtEndor
             // 
-            this.txtEndor.BackColor = System.Drawing.Color.Teal;
-            this.txtEndor.Font = new System.Drawing.Font("Lucida Console", 8.25F);
-            this.txtEndor.ForeColor = System.Drawing.Color.White;
+            this.txtEndor.BackColor = System.Drawing.Color.White;
+            this.txtEndor.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Bold);
+            this.txtEndor.ForeColor = System.Drawing.Color.Black;
             this.txtEndor.Location = new System.Drawing.Point(6, 6);
             this.txtEndor.Multiline = true;
             this.txtEndor.Name = "txtEndor";
@@ -349,9 +398,9 @@
             // 
             // txtLok
             // 
-            this.txtLok.BackColor = System.Drawing.Color.Teal;
-            this.txtLok.Font = new System.Drawing.Font("Lucida Console", 8.25F);
-            this.txtLok.ForeColor = System.Drawing.Color.White;
+            this.txtLok.BackColor = System.Drawing.Color.White;
+            this.txtLok.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Bold);
+            this.txtLok.ForeColor = System.Drawing.Color.Black;
             this.txtLok.Location = new System.Drawing.Point(6, 6);
             this.txtLok.Multiline = true;
             this.txtLok.Name = "txtLok";
@@ -371,9 +420,9 @@
             // 
             // txtNaboo
             // 
-            this.txtNaboo.BackColor = System.Drawing.Color.Teal;
-            this.txtNaboo.Font = new System.Drawing.Font("Lucida Console", 8.25F);
-            this.txtNaboo.ForeColor = System.Drawing.Color.White;
+            this.txtNaboo.BackColor = System.Drawing.Color.White;
+            this.txtNaboo.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Bold);
+            this.txtNaboo.ForeColor = System.Drawing.Color.Black;
             this.txtNaboo.Location = new System.Drawing.Point(6, 6);
             this.txtNaboo.Multiline = true;
             this.txtNaboo.Name = "txtNaboo";
@@ -393,9 +442,9 @@
             // 
             // txtRori
             // 
-            this.txtRori.BackColor = System.Drawing.Color.Teal;
+            this.txtRori.BackColor = System.Drawing.Color.White;
             this.txtRori.Font = new System.Drawing.Font("Lucida Console", 8.25F);
-            this.txtRori.ForeColor = System.Drawing.Color.White;
+            this.txtRori.ForeColor = System.Drawing.Color.Black;
             this.txtRori.Location = new System.Drawing.Point(6, 6);
             this.txtRori.Multiline = true;
             this.txtRori.Name = "txtRori";
@@ -415,9 +464,9 @@
             // 
             // txtTalus
             // 
-            this.txtTalus.BackColor = System.Drawing.Color.Teal;
-            this.txtTalus.Font = new System.Drawing.Font("Lucida Console", 8.25F);
-            this.txtTalus.ForeColor = System.Drawing.Color.White;
+            this.txtTalus.BackColor = System.Drawing.Color.White;
+            this.txtTalus.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Bold);
+            this.txtTalus.ForeColor = System.Drawing.Color.Black;
             this.txtTalus.Location = new System.Drawing.Point(6, 6);
             this.txtTalus.Multiline = true;
             this.txtTalus.Name = "txtTalus";
@@ -437,7 +486,7 @@
             // 
             // txtYavin
             // 
-            this.txtYavin.BackColor = System.Drawing.Color.Teal;
+            this.txtYavin.BackColor = System.Drawing.Color.White;
             this.txtYavin.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtYavin.ForeColor = System.Drawing.Color.White;
             this.txtYavin.Location = new System.Drawing.Point(4, 6);
@@ -447,28 +496,22 @@
             this.txtYavin.Size = new System.Drawing.Size(590, 419);
             this.txtYavin.TabIndex = 2;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 470);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "label1";
-            // 
             // frmMonitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1277, 509);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.tabControl2);
+            this.BackgroundImage = global::ANHMonitor.Properties.Resources.lightgrey;
+            this.ClientSize = new System.Drawing.Size(660, 526);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.label1);
             this.Name = "frmMonitor";
             this.Text = "SWG:ANH TC Server";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMonitor_FormClosing);
             this.Load += new System.EventHandler(this.frmMonitor_Load);
             this.tabControl1.ResumeLayout(false);
+            this.tabUtility.ResumeLayout(false);
+            this.tabZones.ResumeLayout(false);
+            this.tabControl2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -477,7 +520,7 @@
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
-            this.tabControl2.ResumeLayout(false);
+            this.tabControl3.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             this.tabPage6.ResumeLayout(false);
@@ -507,7 +550,11 @@
 
         #endregion
 
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabUtility;
+        private System.Windows.Forms.TabPage tabZones;
+        private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TextBox txtConnection;
         private System.Windows.Forms.TabPage tabPage2;
@@ -516,7 +563,7 @@
         private System.Windows.Forms.TextBox txtPing;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TextBox txtLogin;
-        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabControl tabControl3;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TextBox txtTutorial;
         private System.Windows.Forms.TabPage tabPage6;
@@ -539,7 +586,6 @@
         private System.Windows.Forms.TextBox txtTalus;
         private System.Windows.Forms.TabPage tabPage15;
         private System.Windows.Forms.TextBox txtYavin;
-        private System.Windows.Forms.Label label1;
 
     }
 }

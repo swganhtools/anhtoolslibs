@@ -60,9 +60,30 @@ namespace ANHMonitor.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap btn {
+            get {
+                object obj = ResourceManager.GetObject("btn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap lightgrey {
+            get {
+                object obj = ResourceManager.GetObject("lightgrey", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap newgui {
             get {
                 object obj = ResourceManager.GetObject("newgui", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap offwhite {
+            get {
+                object obj = ResourceManager.GetObject("offwhite", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

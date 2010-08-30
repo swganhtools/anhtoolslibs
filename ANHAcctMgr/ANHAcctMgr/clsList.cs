@@ -16,6 +16,7 @@ using Utilities;
 using ANHMySQLLib;
 using ANHMySQLLib.Command;
 
+
 namespace ANHAcctMgr
 {
     class Lists
@@ -27,8 +28,10 @@ namespace ANHAcctMgr
         {
 
             // Sync query example. Bad bad bad, dont use it 
-           Global.Startup();
+       
             List<Account> accounts = new List<Account>();
+
+            
             AsyncMysqlQuery query = new AsyncMysqlQuery("CALL swganh_utility.sp_AdminAccountList();");
 
             query.SetHandler(delegate(MySqlDataReader reader)
@@ -49,8 +52,7 @@ namespace ANHAcctMgr
 
             });
 
-            Global.MysqlEngine.ExecuteAsync(query);
-            Global.Shutdown();
+            Database.Utility.ExecuteSync(query);
             return accounts;
             
         }

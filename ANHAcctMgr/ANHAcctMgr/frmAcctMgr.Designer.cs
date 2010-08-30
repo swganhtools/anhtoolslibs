@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAcctMgr));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label11 = new System.Windows.Forms.Label();
@@ -82,12 +83,12 @@
             this.tabControl1.Location = new System.Drawing.Point(5, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(719, 377);
+            this.tabControl1.Size = new System.Drawing.Size(615, 377);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
-            this.tabPage1.BackgroundImage = global::ANHAcctMgr.Properties.Resources.grey;
+            this.tabPage1.BackgroundImage = global::ANHAcctMgr.Properties.Resources.offwhite;
             this.tabPage1.Controls.Add(this.label11);
             this.tabPage1.Controls.Add(this.txtJoined);
             this.tabPage1.Controls.Add(this.label10);
@@ -113,7 +114,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(711, 351);
+            this.tabPage1.Size = new System.Drawing.Size(607, 351);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Edit Accounts";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -130,7 +131,7 @@
             // txtJoined
             // 
             this.txtJoined.ForeColor = System.Drawing.Color.Black;
-            this.txtJoined.Location = new System.Drawing.Point(274, 133);
+            this.txtJoined.Location = new System.Drawing.Point(328, 136);
             this.txtJoined.Name = "txtJoined";
             this.txtJoined.ReadOnly = true;
             this.txtJoined.Size = new System.Drawing.Size(234, 20);
@@ -148,7 +149,7 @@
             // txtLastCreate
             // 
             this.txtLastCreate.ForeColor = System.Drawing.Color.Black;
-            this.txtLastCreate.Location = new System.Drawing.Point(275, 185);
+            this.txtLastCreate.Location = new System.Drawing.Point(329, 188);
             this.txtLastCreate.Name = "txtLastCreate";
             this.txtLastCreate.ReadOnly = true;
             this.txtLastCreate.Size = new System.Drawing.Size(234, 20);
@@ -166,7 +167,7 @@
             // txtLastLogin
             // 
             this.txtLastLogin.ForeColor = System.Drawing.Color.Black;
-            this.txtLastLogin.Location = new System.Drawing.Point(275, 159);
+            this.txtLastLogin.Location = new System.Drawing.Point(329, 162);
             this.txtLastLogin.Name = "txtLastLogin";
             this.txtLastLogin.ReadOnly = true;
             this.txtLastLogin.Size = new System.Drawing.Size(234, 20);
@@ -179,15 +180,15 @@
             "Normal",
             "CSR",
             "Developer"});
-            this.cmbCSR.Location = new System.Drawing.Point(273, 55);
+            this.cmbCSR.Location = new System.Drawing.Point(327, 58);
             this.cmbCSR.Name = "cmbCSR";
             this.cmbCSR.Size = new System.Drawing.Size(121, 21);
             this.cmbCSR.TabIndex = 19;
             // 
             // btnPassUpdate
             // 
-            this.btnPassUpdate.BackgroundImage = global::ANHAcctMgr.Properties.Resources.grey;
-            this.btnPassUpdate.Location = new System.Drawing.Point(264, 308);
+            this.btnPassUpdate.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPassUpdate.BackgroundImage")));
+            this.btnPassUpdate.Location = new System.Drawing.Point(309, 306);
             this.btnPassUpdate.Name = "btnPassUpdate";
             this.btnPassUpdate.Size = new System.Drawing.Size(152, 23);
             this.btnPassUpdate.TabIndex = 17;
@@ -198,7 +199,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(287, 266);
+            this.label8.Location = new System.Drawing.Point(332, 264);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(108, 13);
             this.label8.TabIndex = 16;
@@ -206,15 +207,15 @@
             // 
             // txtUpdatePass
             // 
-            this.txtUpdatePass.Location = new System.Drawing.Point(222, 282);
+            this.txtUpdatePass.Location = new System.Drawing.Point(267, 280);
             this.txtUpdatePass.Name = "txtUpdatePass";
             this.txtUpdatePass.Size = new System.Drawing.Size(234, 20);
             this.txtUpdatePass.TabIndex = 15;
             // 
             // btnReset
             // 
-            this.btnReset.BackgroundImage = global::ANHAcctMgr.Properties.Resources.grey;
-            this.btnReset.Location = new System.Drawing.Point(328, 239);
+            this.btnReset.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnReset.BackgroundImage")));
+            this.btnReset.Location = new System.Drawing.Point(373, 237);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(152, 23);
             this.btnReset.TabIndex = 12;
@@ -223,8 +224,8 @@
             // 
             // btnSave
             // 
-            this.btnSave.BackgroundImage = global::ANHAcctMgr.Properties.Resources.grey;
-            this.btnSave.Location = new System.Drawing.Point(170, 239);
+            this.btnSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSave.BackgroundImage")));
+            this.btnSave.Location = new System.Drawing.Point(215, 237);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(152, 23);
             this.btnSave.TabIndex = 11;
@@ -271,7 +272,7 @@
             // txtChars
             // 
             this.txtChars.ForeColor = System.Drawing.Color.Black;
-            this.txtChars.Location = new System.Drawing.Point(274, 108);
+            this.txtChars.Location = new System.Drawing.Point(328, 111);
             this.txtChars.Name = "txtChars";
             this.txtChars.Size = new System.Drawing.Size(234, 20);
             this.txtChars.TabIndex = 6;
@@ -279,7 +280,7 @@
             // txtBanned
             // 
             this.txtBanned.ForeColor = System.Drawing.Color.Black;
-            this.txtBanned.Location = new System.Drawing.Point(274, 82);
+            this.txtBanned.Location = new System.Drawing.Point(328, 85);
             this.txtBanned.Name = "txtBanned";
             this.txtBanned.Size = new System.Drawing.Size(120, 20);
             this.txtBanned.TabIndex = 5;
@@ -287,7 +288,7 @@
             // txtEmail
             // 
             this.txtEmail.ForeColor = System.Drawing.Color.Black;
-            this.txtEmail.Location = new System.Drawing.Point(274, 30);
+            this.txtEmail.Location = new System.Drawing.Point(328, 33);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(234, 20);
             this.txtEmail.TabIndex = 3;
@@ -295,7 +296,7 @@
             // txtUserName
             // 
             this.txtUserName.ForeColor = System.Drawing.Color.Black;
-            this.txtUserName.Location = new System.Drawing.Point(274, 4);
+            this.txtUserName.Location = new System.Drawing.Point(328, 7);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(234, 20);
             this.txtUserName.TabIndex = 2;
@@ -353,7 +354,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.BackgroundImage = global::ANHAcctMgr.Properties.Resources.grey;
+            this.tabPage2.BackgroundImage = global::ANHAcctMgr.Properties.Resources.offwhite;
             this.tabPage2.Controls.Add(this.label13);
             this.tabPage2.Controls.Add(this.txtCreateCharsAllowed);
             this.tabPage2.Controls.Add(this.cmbCreateType);
@@ -412,7 +413,7 @@
             // 
             // btnCreate
             // 
-            this.btnCreate.BackgroundImage = global::ANHAcctMgr.Properties.Resources.grey;
+            this.btnCreate.BackgroundImage = global::ANHAcctMgr.Properties.Resources.btn;
             this.btnCreate.Location = new System.Drawing.Point(152, 164);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(209, 23);
@@ -473,13 +474,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::ANHAcctMgr.Properties.Resources.grey;
-            this.ClientSize = new System.Drawing.Size(728, 384);
+            this.BackgroundImage = global::ANHAcctMgr.Properties.Resources.lightgrey;
+            this.ClientSize = new System.Drawing.Size(625, 384);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.Color.White;
+            this.ForeColor = System.Drawing.Color.Black;
             this.Name = "frmAcctMgr";
-            this.Text = "SWG:ANH Account Manager";           
+            this.Text = "SWG:ANH Account Manager";
             this.Load += new System.EventHandler(this.frmAccounts_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

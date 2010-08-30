@@ -72,6 +72,15 @@
   <ItemGroup>
     <None Include="Resources\grey.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lightgrey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\offwhite.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

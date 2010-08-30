@@ -27,6 +27,7 @@ namespace ANHMySQLLib
             mConnections = new Stack<AsyncMysqlConnection>();
             mCommandQueue = new SharedWorkQueue<AsyncMysqlCommand>();
             mShuttingDown = false;
+            mCommandQueue.NotifyEmpty();
 
             mConnectionString = connectionString;
         }

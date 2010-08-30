@@ -29,17 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTCClient));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblUtilStatus = new System.Windows.Forms.Label();
             this.btnUtilityStatus = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblZoneStatus = new System.Windows.Forms.Label();
             this.btnZoneStatus = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.lblUtilStatus = new System.Windows.Forms.Label();
-            this.lblZoneStatus = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -85,8 +86,39 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnZoneStatus);
             this.splitContainer1.Panel2.Controls.Add(this.label3);
             this.splitContainer1.Size = new System.Drawing.Size(411, 124);
-            this.splitContainer1.SplitterDistance = 199;
+            this.splitContainer1.SplitterDistance = 198;
             this.splitContainer1.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(6, 94);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(190, 20);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "label4";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lblUtilStatus
+            // 
+            this.lblUtilStatus.AutoSize = true;
+            this.lblUtilStatus.Location = new System.Drawing.Point(55, 75);
+            this.lblUtilStatus.Name = "lblUtilStatus";
+            this.lblUtilStatus.Size = new System.Drawing.Size(88, 13);
+            this.lblUtilStatus.TabIndex = 2;
+            this.lblUtilStatus.Text = "Current Status";
+            // 
+            // btnUtilityStatus
+            // 
+            this.btnUtilityStatus.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnUtilityStatus.BackgroundImage")));
+            this.btnUtilityStatus.Location = new System.Drawing.Point(47, 45);
+            this.btnUtilityStatus.Name = "btnUtilityStatus";
+            this.btnUtilityStatus.Size = new System.Drawing.Size(110, 23);
+            this.btnUtilityStatus.TabIndex = 1;
+            this.btnUtilityStatus.Text = "Get Status";
+            this.btnUtilityStatus.UseVisualStyleBackColor = true;
+            this.btnUtilityStatus.Click += new System.EventHandler(this.btnUtilityStatus_Click);
             // 
             // label2
             // 
@@ -97,20 +129,28 @@
             this.label2.Text = "Connection, Chat,Ping,Login";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // btnUtilityStatus
+            // label5
             // 
-            this.btnUtilityStatus.BackgroundImage = global::ANHTCClient.Properties.Resources.grey;
-            this.btnUtilityStatus.Location = new System.Drawing.Point(33, 45);
-            this.btnUtilityStatus.Name = "btnUtilityStatus";
-            this.btnUtilityStatus.Size = new System.Drawing.Size(110, 23);
-            this.btnUtilityStatus.TabIndex = 1;
-            this.btnUtilityStatus.Text = "Get Status";
-            this.btnUtilityStatus.UseVisualStyleBackColor = true;
-            this.btnUtilityStatus.Click += new System.EventHandler(this.btnUtilityStatus_Click);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(3, 94);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(202, 20);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "label5";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lblZoneStatus
+            // 
+            this.lblZoneStatus.AutoSize = true;
+            this.lblZoneStatus.Location = new System.Drawing.Point(52, 75);
+            this.lblZoneStatus.Name = "lblZoneStatus";
+            this.lblZoneStatus.Size = new System.Drawing.Size(88, 13);
+            this.lblZoneStatus.TabIndex = 4;
+            this.lblZoneStatus.Text = "Current Status";
             // 
             // btnZoneStatus
             // 
-            this.btnZoneStatus.BackgroundImage = global::ANHTCClient.Properties.Resources.grey;
+            this.btnZoneStatus.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnZoneStatus.BackgroundImage")));
             this.btnZoneStatus.Location = new System.Drawing.Point(41, 45);
             this.btnZoneStatus.Name = "btnZoneStatus";
             this.btnZoneStatus.Size = new System.Drawing.Size(110, 23);
@@ -128,48 +168,9 @@
             this.label3.Text = "Zones - Tutorial, Tatooine, Naboo, Corellia";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // lblUtilStatus
-            // 
-            this.lblUtilStatus.AutoSize = true;
-            this.lblUtilStatus.Location = new System.Drawing.Point(40, 75);
-            this.lblUtilStatus.Name = "lblUtilStatus";
-            this.lblUtilStatus.Size = new System.Drawing.Size(88, 13);
-            this.lblUtilStatus.TabIndex = 2;
-            this.lblUtilStatus.Text = "Current Status";
-            // 
-            // lblZoneStatus
-            // 
-            this.lblZoneStatus.AutoSize = true;
-            this.lblZoneStatus.Location = new System.Drawing.Point(52, 75);
-            this.lblZoneStatus.Name = "lblZoneStatus";
-            this.lblZoneStatus.Size = new System.Drawing.Size(88, 13);
-            this.lblZoneStatus.TabIndex = 4;
-            this.lblZoneStatus.Text = "Current Status";
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(6, 94);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(190, 20);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "label4";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(3, 94);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(202, 20);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "label5";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // button1
             // 
-            this.button1.BackgroundImage = global::ANHTCClient.Properties.Resources.grey;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.Location = new System.Drawing.Point(19, 161);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(190, 23);
@@ -180,7 +181,7 @@
             // 
             // button2
             // 
-            this.button2.BackgroundImage = global::ANHTCClient.Properties.Resources.grey;
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
             this.button2.Location = new System.Drawing.Point(223, 161);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(190, 23);
@@ -204,7 +205,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::ANHTCClient.Properties.Resources.grey;
+            this.BackgroundImage = global::ANHTCClient.Properties.Resources.lightgrey;
             this.ClientSize = new System.Drawing.Size(425, 228);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button2);
@@ -212,7 +213,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.Color.White;
+            this.ForeColor = System.Drawing.Color.Black;
             this.Name = "frmTCClient";
             this.Text = "SWG:ANH TC Remote Administration";
             this.Load += new System.EventHandler(this.frmTCClient_Load);

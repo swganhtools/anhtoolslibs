@@ -35,9 +35,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ANHDBI\ANHDBI\bin\Debug\ANHDBI.dll</HintPath>
     </Reference>
-    <Reference Include="ANHMySQLLib">
-      <HintPath>..\..\ANHMySQLLib\ANHMySQLLib\bin\Debug\ANHMySQLLib.dll</HintPath>
-    </Reference>
     <Reference Include="MySql.Data, Version=6.2.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -56,13 +53,13 @@
   <ItemGroup>
     <Compile Include="clsAccount.cs" />
     <Compile Include="clsList.cs" />
+    <Compile Include="Database.cs" />
     <Compile Include="frmAcctMgr.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAcctMgr.Designer.cs">
       <DependentUpon>frmAcctMgr.cs</DependentUpon>
     </Compile>
-    <Compile Include="Global.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -87,6 +84,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\newlight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ANHMySQLLib\ANHMySQLLib\ANHMySQLLib.csproj">
+      <Project>{F7658155-B5BE-44A3-8DE2-641E2C58DB66}</Project>
+      <Name>ANHMySQLLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lightgrey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\offwhite.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
