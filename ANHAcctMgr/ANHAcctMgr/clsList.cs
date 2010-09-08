@@ -10,9 +10,6 @@ using Microsoft.Win32;
 using System.Diagnostics;
 using System.Configuration;
 using MySql.Data.MySqlClient;
-using ANHDBI;
-using ANHDBI.MySQL;
-using Utilities;
 
 namespace ANHAcctMgr
 {
@@ -21,39 +18,6 @@ namespace ANHAcctMgr
         /*******************
          * Accounts Sorted List
          *******************/
-        public static SortedList<int, Account> AccountList()
-        {
-            MySQLRunner.ConnectionString = clsDBStrings.configdbcon;
-            SortedList<int, Account> lsAccounts = new SortedList<int, Account>();
-            MySqlConnection conGet = new MySqlConnection(MySQLRunner.ConnectionString);
-            MySqlDataReader drGet = null;
-            string sSQL = "";
-            Account oAccount;
-
-            sSQL = "CALL sp_AdminAccountList();";
-
-            if (MySQLRunner.ExecuteQuery(sSQL, conGet, ref drGet) == true)
-            {
-
-                while (drGet.Read())
-                {
-                    oAccount = new Account(drGet.GetInt32("account_id"));
-                    lsAccounts.Add(oAccount.ID, oAccount);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Error connecting to the database.");
-            }
-
-            if (conGet.State == ConnectionState.Open)
-            {
-                if (drGet != null)
-                    drGet.Close();
-
-                conGet.Close();
-            }
-            return lsAccounts;
-        }
+        
     }
 }
