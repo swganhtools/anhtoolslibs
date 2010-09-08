@@ -10,9 +10,6 @@ using Microsoft.Win32;
 using System.Diagnostics;
 using System.Configuration;
 using MySql.Data.MySqlClient;
-using ANHDBI;
-using ANHDBI.MySQL;
-using Utilities;
 using ANHMySQLLib;
 using ANHMySQLLib.Command;
 

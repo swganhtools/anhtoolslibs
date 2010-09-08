@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5C991E6E-A232-457D-9D93-3A99D72D6F02}</ProjectGuid>
+    <ProjectGuid>{CB8FA1D3-9165-4B27-BCDA-13D78532C74D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ANHAcctMgr</RootNamespace>
-    <AssemblyName>ANHAcctMgr</AssemblyName>
+    <RootNamespace>ServiceClient</RootNamespace>
+    <AssemblyName>ServiceClient</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,11 +31,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=6.3.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="ANH_WCF_Interface">
+      <HintPath>..\..\..\anhtoolsservice\ANH_WCF_Interface\ANH_WCF_Interface\bin\Debug\ANH_WCF_Interface.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,54 +48,72 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clsAccount.cs" />
-    <Compile Include="clsList.cs" />
-    <Compile Include="Database.cs" />
-    <Compile Include="frmAcctMgr.cs">
+    <Compile Include="AnhCallback.cs" />
+    <Compile Include="frmClient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAcctMgr.Designer.cs">
-      <DependentUpon>frmAcctMgr.cs</DependentUpon>
+    <Compile Include="frmClient.Designer.cs">
+      <DependentUpon>frmClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="MessageEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
+    <Compile Include="Servers.cs" />
+    <Compile Include="Service References\ANHService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmAcctMgr.resx">
-      <DependentUpon>frmAcctMgr.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="frmClient.resx">
+      <DependentUpon>frmClient.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\grey.png" />
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\newgui.png" />
+    <None Include="Service References\ANHService\AnhService.wsdl" />
+    <None Include="Service References\ANHService\AnhService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ANHService\AnhService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ANHService\AnhService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ANHService\AnhService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\newlight.png" />
+    <WCFMetadataStorage Include="Service References\ANHService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ANHService\AnhService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ANHService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ANHService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ANHService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\ANHMySQLLib\ANHMySQLLib\ANHMySQLLib.csproj">
       <Project>{F7658155-B5BE-44A3-8DE2-641E2C58DB66}</Project>
       <Name>ANHMySQLLib</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\btn.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\lightgrey.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\offwhite.png" />
+    <ProjectReference Include="..\..\ProcessCaller\ProcessCaller\ProcessCaller.csproj">
+      <Project>{008E15BD-AC21-4437-BE80-B53B64DA4D1B}</Project>
+      <Name>ProcessCaller</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
