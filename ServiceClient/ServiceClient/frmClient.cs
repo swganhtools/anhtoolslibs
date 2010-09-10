@@ -11,7 +11,7 @@ using ServiceClient.ANHService;
 using System.Security.Cryptography;
 using System.Configuration;
 using System.Diagnostics;
-
+//using ANH_WCF_Interface;
 namespace ServiceClient
 {
     public partial class frmClient : Form
@@ -68,12 +68,12 @@ namespace ServiceClient
 
         void ServerCallback_AvailableServerListReceived(object sender, ServiceClient.AvailableServerEventArgs e)
         {
-            //List<ServerType> t = e.ServerList;
-            //listBox1.Items.Add(t.Count + " types of servers are available");
-            //foreach (ServerType st in t)
-            //{
-            //    listBox1.Items.Add(st);
-            //}
+            List<ServiceClient.ANHService.ServerType> t = e.ServerList;
+            listBox1.Items.Add(t.Count + " types of servers are available");
+            foreach (ServiceClient.ANHService.ServerType st in t)
+            {
+                listBox1.Items.Add(st);
+            }
         }
 
         void ServerCallback_MessageReceived(object sender, MessageEventArgs e)
