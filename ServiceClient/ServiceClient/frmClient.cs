@@ -124,18 +124,18 @@ namespace ServiceClient
         }
         void StartServer(object sender, EventArgs e)
         {
-            Servers s = (Servers)comboBox1.SelectedItem;
-            if (s == null) return;
+            //Servers s = (Servers)comboBox1.SelectedItem;
+            //if (s == null) return;
 
-            listBox1.Items.Add(client.StartServer(s.type, s.args));
+            //listBox1.Items.Add(client.StartServer(s.type, s.args));
             
         }
         void StopServer(object sender, EventArgs e)
         {
-            Servers s = (Servers)comboBox1.SelectedItem;
-            if (s == null) return;
+            //Servers s = (Servers)comboBox1.SelectedItem;
+            //if (s == null) return;
 
-            listBox1.Items.Add(client.StopServer(s.type, s.args));
+            //listBox1.Items.Add(client.StopServer(s.type, s.args));
         }
         void SubscribeToStatusUpdates(object sender, EventArgs e)
         {
