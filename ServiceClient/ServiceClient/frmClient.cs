@@ -60,17 +60,17 @@ namespace ServiceClient
                 return;
 
             listBox1.Items.Add("Got statuses for " + e.StatusList.Count + " Servers");
-            foreach (ANH_WCF_Interface.IServerStatus iss in e.StatusList)
+            foreach (IServerStatus iss in e.StatusList)
             {
                 listBox1.Items.Add(iss.type.ToString() + ": " + iss.args + " Running: " + iss.IsRunning + " Crashed: " + iss.IsCrashed + " Uptime (s): " + iss.Uptime / 1000);
             }
         }
 
-        void ServerCallback_AvailableServerListReceived(object sender, ServiceClient.AvailableServerEventArgs e)
+        void ServerCallback_AvailableServerListReceived(object sender, AvailableServerEventArgs e)
         {
-            List<ServiceClient.ANHService.ServerType> t = e.ServerList;
+            List<ServerType> t = e.ServerList;
             listBox1.Items.Add(t.Count + " types of servers are available");
-            foreach (ServiceClient.ANHService.ServerType st in t)
+            foreach (ServerType st in t)
             {
                 listBox1.Items.Add(st);
             }
@@ -83,7 +83,7 @@ namespace ServiceClient
         private void Auth_Click(object sender, EventArgs e)
         {
             listBox1.Items.Add("Authenticating with server");
-            bool result = client.AuthenticateSession(ANH_WCF_Interface.HashCalc.GetSHA(System.Configuration.ConfigurationManager.AppSettings["remoteauth"]));
+            bool result = client.AuthenticateSession(HashCalc.GetSHA(System.Configuration.ConfigurationManager.AppSettings["remoteauth"]));
             if (result)
             {
                 listBox1.Items.Add("You are now Authenticated");
@@ -128,6 +128,7 @@ namespace ServiceClient
             if (s == null) return;
 
             listBox1.Items.Add(client.StartServer(s.type, s.args));
+            
         }
         void StopServer(object sender, EventArgs e)
         {
@@ -147,7 +148,7 @@ namespace ServiceClient
         private void frmClient_Load(object sender, EventArgs e)
         {
             listBox1.Items.Add("Authenticating with server");
-            bool result = client.AuthenticateSession(ANH_WCF_Interface.HashCalc.GetSHA(System.Configuration.ConfigurationManager.AppSettings["remoteauth"]));
+            bool result = client.AuthenticateSession(HashCalc.GetSHA(System.Configuration.ConfigurationManager.AppSettings["remoteauth"]));
             if (result)
             {
                 listBox1.Items.Add("You are now Authenticated");

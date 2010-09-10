@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 //using ServiceClient.ANHService;
-using ANH_WCF_Interface;
 
 namespace ServiceClient
 {

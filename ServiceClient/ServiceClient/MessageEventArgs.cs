@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using ANH_WCF_Interface;
+
 namespace ServiceClient
 {
     public class MessageEventArgs : EventArgs
